@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Château de Hautclair</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <h1>Château de Hautclair</h1>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#histoire">Histoire</a></li>
+            <li><a href="#visite">Visite</a></li>
+            <li><a href="#evenements">Événements</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="billeterie">
+              <a href="#billeterie">
+                <span>Billetterie</span>
+                <i class="fas fa-ticket-alt"></i>
+              </a>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="accueil" class="hero">
+        <div class="hero-content">
+          <h2>Découvrez l'histoire fascinante</h2>
+          <p>Un voyage à travers les siècles dans un cadre exceptionnel</p>
+          <a href="#billeterie" class="btn">Réserver votre visite</a>
+        </div>
+      </section>
+
+      <section id="histoire" class="section-histoire">
+        <div class="container">
+          <h2 class="section-title">L'Histoire de Hautclair</h2>
+          <div class="histoire-content">
+            <div class="histoire-image">
+              <img
+                src="https://placehold.co/600x300"
+                alt="Château historique"
+              />
+            </div>
+            <div class="histoire-text">
+              <h3>Un héritage médiéval</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                lacinia odio vitae vestibulum vestibulum. Cras porttitor metus
+                vel justo commodo, nec tincidunt magna ullamcorper.
+              </p>
+              <p>
+                Praesent tincidunt, nulla id viverra facilisis, mauris nulla
+                hendrerit est, vel efficitur justo enim vel nulla. Suspendisse
+                potenti. Cras fermentum turpis id sapien faucibus, a fringilla
+                augue efficitur.
+              </p>
+              <a href="#" class="btn-secondary">En savoir plus</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="visite" class="section-visite">
+        <div class="container">
+          <h2 class="section-title">Préparez votre visite</h2>
+          <div class="cards-container">
+            <div class="card">
+              <div class="card-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <h3>Horaires</h3>
+              <p>
+                Ouvert tous les jours<br />10h - 18h (Avril à Octobre)<br />10h
+                - 17h (Novembre à Mars)
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">
+                <i class="fas fa-euro-sign"></i>
+              </div>
+              <h3>Tarifs</h3>
+              <p>Adultes: 12€<br />Enfants: 8€<br />Groupes: 10€/personne</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <h3>Accès</h3>
+              <p>
+                15 min du centre-ville<br />Parking gratuit<br />Accès PMR
+                disponible
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="evenements" class="section-evenements">
+        <div class="container">
+          <h2 class="section-title">Nos événements</h2>
+          <div class="events-slider">
+            <div class="events-track">
+              <div class="event">
+                <img src="https://placehold.co/400x250" alt="Événement 1" />
+                <div class="event-info">
+                  <h3>Festival médiéval</h3>
+                  <p class="event-date">15-17 Juillet 2025</p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vivamus lacinia odio vitae vestibulum.
+                  </p>
+                </div>
+              </div>
+              <div class="event">
+                <img src="https://placehold.co/400x250" alt="Événement 2" />
+                <div class="event-info">
+                  <h3>Nuit des étoiles</h3>
+                  <p class="event-date">10 Août 2025</p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vivamus lacinia odio vitae vestibulum.
+                  </p>
+                </div>
+              </div>
+              <div class="event">
+                <img src="https://placehold.co/400x250" alt="Événement 3" />
+                <div class="event-info">
+                  <h3>Exposition d'art</h3>
+                  <p class="event-date">5-20 Septembre 2025</p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Vivamus lacinia odio vitae vestibulum.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-controls">
+            <button class="prev-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="galerie" class="section-galerie">
+        <div class="container">
+          <h2 class="section-title">Galerie</h2>
+          <div class="galerie-grid">
+            <div class="galerie-item">
+              <img src="https://placehold.co/300x200" alt="Galerie 1" />
+            </div>
+            <div class="galerie-item">
+              <img src="https://placehold.co/300x200" alt="Galerie 2" />
+            </div>
+            <div class="galerie-item">
+              <img src="https://placehold.co/300x200" alt="Galerie 3" />
+            </div>
+            <div class="galerie-item">
+              <img src="https://placehold.co/300x200" alt="Galerie 4" />
+            </div>
+            <div class="galerie-item">
+              <img src="https://placehold.co/300x200" alt="Galerie 5" />
+            </div>
+            <div class="galerie-item">
+              <img src="https://placehold.co/300x200" alt="Galerie 6" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section-contact">
+        <div class="container">
+          <h2 class="section-title">Contact</h2>
+          <div class="contact-content">
+            <div class="contact-info">
+              <h3>Informations</h3>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> 123 Route des Remparts,
+                75000 Paris
+              </p>
+              <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+              <p><i class="fas fa-envelope"></i> contact@chateauhautclair.fr</p>
+            </div>
+            <form class="contact-form">
+              <input type="text" placeholder="Nom" />
+              <input type="email" placeholder="Email" />
+              <textarea placeholder="Message"></textarea>
+              <button type="submit" class="btn">Envoyer</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Château de Hautclair</h3>
+          <p>
+            Un patrimoine historique à découvrir au cœur d'un parc magnifique.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Liens rapides</h3>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#histoire">Histoire</a></li>
+            <li><a href="#visite">Visite</a></li>
+            <li><a href="#evenements">Événements</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>Inscrivez-vous pour recevoir nos actualités</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Votre email" />
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Château de Hautclair. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Services et Templates</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Expert en création de sites web</h1>
+            <p>Solutions personnalisées pour votre présence en ligne</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><a href="/index.html">WebCreator</a></div>
+            <div class="menu">
+                <a href="#services">Services</a>
+                <a href="#templates">Templates</a>
+                <a href="/pages/contact/index.php">Contact</a>
+                <a href="/pages/price/index.html">Tarifs</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Transformez votre vision en réalité numérique</h1>
+            <p>Bienvenue dans mon univers de création web où je conçois des sites web professionnels, esthétiques et performants pour répondre à vos besoins spécifiques.</p>
+        </section>
+
+        <section id="services" class="services">
+            <h2 class="section-title">Mes Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <i>🎨</i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Conception Web</h3>
+                        <p>Création de sites web sur mesure avec un design adapté à votre image de marque et à vos objectifs.</p>
+                        <a href="#" class="btn">En savoir plus</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img">
+                        <i>📱</i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Responsive Design</h3>
+                        <p>Conception adaptative pour une expérience utilisateur optimale sur tous les appareils.</p>
+                        <a href="#" class="btn">En savoir plus</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img">
+                        <i>🔍</i>
+                    </div>
+                    <div class="service-content">
+                        <h3>SEO</h3>
+                        <p>Optimisation pour les moteurs de recherche pour améliorer votre visibilité en ligne.</p>
+                        <a href="#" class="btn">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="templates" class="templates">
+            <h2 class="section-title">Templates Disponibles</h2>
+            <div class="templates-grid" id="templates-grid">
+                <!-- Les cartes seront générées ici par JavaScript -->
+            </div>
+        </section>
+
+        <section id="contact" class="cta">
+            <h2>Prêt à commencer votre projet?</h2>
+            <p>Contactez-moi pour discuter de vos besoins et obtenir un devis personnalisé.</p>
+            <a href="/pages/contact/index.php" class="btn btn-primary">Demander un devis</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>WebCreator</h3>
+                <p>Création de sites web professionnels sur mesure pour booster votre présence en ligne.</p>
+                <ul class="footer-links">
+                    <li><a href="/pages/mentions-legales/mentions-legales.html">Mentions Légales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Liens Rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#templates">Templates</a></li>
+                    <li><a href="/pages/contact/index.php">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Conception Web</a></li>
+                    <li><a href="#">Responsive Design</a></li>
+                    <li><a href="#">SEO</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:contact@webcreator.com">Email: contact@webcreator.com</a></li>
+                    <li><a href="tel:+33672617996">Téléphone: +33 1 23 45 67 89</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 WebCreator. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Modals pour les templates -->
+    <div id="templateModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="template-details">
+                <div class="template-preview" id="modal-preview"></div>
+                <div class="template-info">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-description"></p>
+                    <div id="modal-tags"></div>
+                    <h3>Caractéristiques</h3>
+                    <ul id="modal-features"></ul>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary" id="demo-btn">Voir la démo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

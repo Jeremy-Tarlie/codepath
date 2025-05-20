@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fleurs & Merveilles - Votre Fleuriste en Ligne</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- En-tête principal -->
+    <header>
+      <div class="container">
+        <div class="logo">
+          <h1>Fleurs & Merveilles</h1>
+        </div>
+        <nav>
+          <div class="nav-links">
+            <a href="#">Accueil</a>
+            <a href="#">Bouquets</a>
+            <a href="#">Livraison</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="nav-actions">
+            <div class="user-actions">
+              <a href="#" class="account-link">
+                <i class="fas fa-user"></i>
+                <span>Mon Compte</span>
+              </a>
+              <a href="#" class="cart-link" id="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Panier</span>
+                <span class="cart-count" id="cart-count">0</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Bannière principale -->
+    <div class="banner">
+      <div class="banner-content">
+        <h1>La beauté des fleurs à portée de clic</h1>
+        <p>Livraison garantie en 4h sur Paris et en 24h partout en France</p>
+        <button class="cta-button">Découvrir nos bouquets</button>
+      </div>
+    </div>
+
+    <!-- Avantages -->
+    <div class="features">
+      <div class="container">
+        <div class="feature">
+          <i class="fas fa-truck"></i>
+          <h3>Livraison Rapide</h3>
+          <p>En 4h sur Paris</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-seedling"></i>
+          <h3>Fleurs Fraîches</h3>
+          <p>7 jours garantis</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Paiement Sécurisé</h3>
+          <p>100% sécurisé</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-heart"></i>
+          <h3>Satisfaction</h3>
+          <p>Ou remboursé</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Catégories -->
+    <section class="categories">
+      <div class="container">
+        <h2>Trouvez le bouquet parfait</h2>
+        <div class="category-grid">
+          <div class="category">
+            <img src="https://placehold.co/600x400" alt="Anniversaire" />
+            <h3>Anniversaire</h3>
+          </div>
+          <div class="category">
+            <img src="https://placehold.co/600x400" alt="Amour" />
+            <h3>Amour & Romance</h3>
+          </div>
+          <div class="category">
+            <img src="https://placehold.co/600x400" alt="Mariage" />
+            <h3>Mariage</h3>
+          </div>
+          <div class="category">
+            <img src="https://placehold.co/600x400" alt="Deuil" />
+            <h3>Deuil</h3>
+          </div>
+          <div class="category">
+            <img src="https://placehold.co/600x400" alt="Naissance" />
+            <h3>Naissance</h3>
+          </div>
+          <div class="category">
+            <img src="https://placehold.co/600x400" alt="Remerciements" />
+            <h3>Remerciements</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produits Best-Sellers -->
+    <section class="products">
+      <div class="container">
+        <h2>Nos Best-Sellers</h2>
+        <div class="products-grid" id="products-container">
+          <!-- Les produits seront ajoutés dynamiquement via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Engagement -->
+    <!-- Section Engagements -->
+    <section class="engagements">
+      <div class="container">
+        <h2 class="section-title">Nos Engagements</h2>
+        <p class="section-subtitle">
+          Des valeurs fortes qui guident chacune de nos actions
+        </p>
+
+        <div class="engagements-grid">
+          <div class="engagement-card">
+            <div class="engagement-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3>Eco-responsable</h3>
+            <div class="engagement-content">
+              <ul>
+                <li>Fleurs locales cultivées en France</li>
+                <li>Respect du rythme des saisons</li>
+                <li>Emballages 100% biodégradables</li>
+                <li>Circuit court privilégié</li>
+                <li>Zéro pesticide</li>
+              </ul>
+              <a href="#" class="learn-more"
+                >En savoir plus <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="engagement-card">
+            <div class="engagement-icon">
+              <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <h3>Artisanal</h3>
+            <div class="engagement-content">
+              <ul>
+                <li>Artisans fleuristes diplômés</li>
+                <li>Compositions uniques faites main</li>
+                <li>Savoir-faire traditionnel</li>
+                <li>Créations personnalisées</li>
+                <li>Passion du métier</li>
+              </ul>
+              <a href="#" class="learn-more"
+                >En savoir plus <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="engagement-card">
+            <div class="engagement-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3>Qualité Premium</h3>
+            <div class="engagement-content">
+              <ul>
+                <li>Sélection rigoureuse des fleurs</li>
+                <li>Fraîcheur garantie 7 jours</li>
+                <li>Contrôle qualité quotidien</li>
+                <li>Stockage optimisé</li>
+                <li>Satisfaction garantie</li>
+              </ul>
+              <a href="#" class="learn-more"
+                >En savoir plus <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="engagement-card">
+            <div class="engagement-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Engagement Social</h3>
+            <div class="engagement-content">
+              <ul>
+                <li>Partenariats locaux</li>
+                <li>Formation d'apprentis</li>
+                <li>Conditions de travail éthiques</li>
+                <li>Support aux producteurs locaux</li>
+                <li>Actions solidaires</li>
+              </ul>
+              <a href="#" class="learn-more"
+                >En savoir plus <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Newsletter -->
+    <section class="newsletter-section">
+      <div class="newsletter-container">
+        <div class="newsletter-content">
+          <div class="newsletter-text">
+            <h2>Rejoignez notre communauté florale</h2>
+            <p class="main-desc">
+              Recevez en avant-première nos offres exclusives et nos
+              inspirations florales
+            </p>
+            <div class="benefits">
+              <div class="benefit-item">
+                <i class="fas fa-gift"></i>
+                <span>10% de réduction sur votre première commande</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-percentage"></i>
+                <span>Offres exclusives réservées aux abonnés</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-book-open"></i>
+                <span>Guide d'entretien des fleurs offert</span>
+              </div>
+              <div class="benefit-item">
+                <i class="fas fa-bell"></i>
+                <span>Alertes promotionnelles personnalisées</span>
+              </div>
+            </div>
+          </div>
+
+          <form id="newsletter-form" class="newsletter-form">
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="Votre adresse email"
+                required
+              />
+              <div class="frequency-select">
+                <label>
+                  <input type="radio" name="frequency" value="weekly" checked />
+                  <span>Hebdomadaire</span>
+                </label>
+                <label>
+                  <input type="radio" name="frequency" value="monthly" />
+                  <span>Mensuelle</span>
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="subscribe-btn">
+              <span>Je m'inscris</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <p class="privacy-notice">
+              <i class="fas fa-lock"></i>
+              En vous inscrivant, vous acceptez notre
+              <a href="#">Politique de confidentialité</a>. Désabonnement facile
+              à tout moment.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <h3>À propos</h3>
+            <ul>
+              <li><a href="#">Qui sommes-nous</a></li>
+              <li><a href="#">Nos engagements</a></li>
+              <li><a href="#">Nos boutiques</a></li>
+              <li><a href="#">Recrutement</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Livraison</a></li>
+              <li><a href="#">Click & Collect</a></li>
+              <li><a href="#">Carte cadeau</a></li>
+              <li><a href="#">Programme fidélité</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Aide</h3>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Suivi de commande</a></li>
+              <li><a href="#">Retours</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Légal</h3>
+            <ul>
+              <li><a href="#">CGV</a></li>
+              <li><a href="#">Mentions légales</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+          <div class="payment-methods">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+          </div>
+          <p>&copy; 2025 Fleurs & Merveilles. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Panier (caché par défaut) -->
+    <div id="cart-sidebar" class="cart-sidebar">
+      <div class="cart-header">
+        <h3>Votre Panier</h3>
+        <button id="close-cart"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="cart-items" class="cart-items">
+        <!-- Les articles du panier seront ajoutés ici -->
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">Total: <span id="cart-total">0,00 €</span></div>
+        <button class="checkout-button">Commander</button>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>

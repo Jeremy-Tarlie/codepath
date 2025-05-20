@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Template - Votre Agence de Communication</title>
+    <meta
+      name="description"
+      content="Template, expert en communication digitale, marketing et création graphique. Solutions personnalisées pour booster votre visibilité."
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+  </head>
+  <body>
+    <!-- Header Principal -->
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <a href="#" class="active">
+            <img src="logo.jpg" alt="Template Logo" />
+          </a>
+        </div>
+        <nav class="main-nav">
+          <button class="mobile-menu-btn" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+          <ul>
+            <li class="dropdown">
+              <a href="#">Services <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Marketing Digital</a></li>
+                <li><a href="#">Design Graphique</a></li>
+                <li><a href="#">Développement Web</a></li>
+                <li><a href="#">Communication Print</a></li>
+              </ul>
+            </li>
+            <li class="dropdown_burger hidden">
+              <a href="#">Marketing Digital</a>
+            </li>
+            <li class="dropdown_burger hidden">
+              <a href="#">Design Graphique</a>
+            </li>
+            <li class="dropdown_burger hidden">
+              <a href="#">Développement Web</a>
+            </li>
+            <li class="dropdown_burger hidden">
+              <a href="#">Communication Print</a>
+            </li>
+            <li><a href="#">Réalisations</a></li>
+            <li class="menu-hidden"><a href="#">À propos</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+              <a href="#" class="btn btn-outline">Espace Client</a>
+            </li>
+            <li>
+              <a href="#" class="btn btn-primary">Devis Gratuit</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Section Hero avec Recherche -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Votre communication, notre passion</h1>
+        <p class="hero-subtitle">
+          Transformez vos idées en succès avec nos solutions sur mesure
+        </p>
+
+        <div class="hero-search-container">
+          <form class="search-form">
+            <h2 class="search-title">
+              Dites-nous en plus sur ce que vous recherchez 🔍
+            </h2>
+
+            <div class="form-group">
+              <div class="input-icon">
+                <i class="fas fa-search"></i>
+                <input
+                  type="text"
+                  placeholder="Que recherchez-vous ?"
+                  id="search"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-icon">
+                <i class="fas fa-th-list"></i>
+                <select>
+                  <option value="">Sélectionnez une catégorie</option>
+                  <option value="communication">Communication Globale</option>
+                  <option value="marketing">Marketing Digital</option>
+                  <option value="design">Design Graphique</option>
+                  <option value="web">Développement Web</option>
+                  <option value="print">Impression & Signalétique</option>
+                  <option value="video">Production Vidéo</option>
+                  <option value="event">Événementiel</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-icon">
+                <i class="fas fa-map-marker-alt"></i>
+                <input
+                  type="text"
+                  placeholder="Votre localisation"
+                  id="location"
+                />
+              </div>
+            </div>
+
+            <!-- Remplacez vos checkboxes actuelles par celles-ci -->
+            <div class="search-options">
+              <div class="checkbox-group">
+                <input type="checkbox" id="useLocation" />
+                <label for="useLocation">
+                  <i class="fas fa-crosshairs"></i>
+                  Utiliser ma position actuelle
+                </label>
+              </div>
+
+              <div class="form-group range-group">
+                <label for="distance">
+                  <i class="fas fa-road"></i>
+                  Distance de recherche
+                </label>
+                <input
+                  type="range"
+                  id="distance"
+                  min="0"
+                  max="100"
+                  value="50"
+                />
+                <div class="range-value" id="distance-value">50 km</div>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="nationwide" />
+                <label for="nationwide">
+                  <i class="fas fa-globe-europe"></i>
+                  Rechercher dans toute la France
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="search-button">
+              <i class="fas fa-search"></i>
+              Rechercher
+              <span class="button-hover"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Défilement indicateur -->
+      <div class="scroll-indicator">
+        <span>Découvrir</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- Compteurs -->
+    <section class="counter-section">
+      <div class="container">
+        <div class="counter-grid">
+          <div class="counter-item">
+            <i class="fas fa-smile"></i>
+            <div class="counter" data-target="500">0</div>
+            <h3>Clients Satisfaits</h3>
+          </div>
+          <div class="counter-item">
+            <i class="fas fa-project-diagram"></i>
+            <div class="counter" data-target="1500">0</div>
+            <h3>Projets Réalisés</h3>
+          </div>
+          <div class="counter-item">
+            <i class="fas fa-trophy"></i>
+            <div class="counter" data-target="25">0</div>
+            <h3>Prix Remportés</h3>
+          </div>
+          <div class="counter-item">
+            <i class="fas fa-clock"></i>
+            <div class="counter" data-target="15">0</div>
+            <h3>Années d'Expérience</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Nos Expertises</span>
+          <h2 class="section-title">Des Solutions Adaptées à Vos Besoins</h2>
+          <p class="section-description">
+            Découvrez notre gamme complète de services pour développer votre
+            présence et votre impact.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service" data-aos="fade-up">
+            <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+            <div class="service-content">
+              <h3 class="service-title">Communication Globale</h3>
+              <p class="service-desc">
+                Stratégies de communication sur-mesure pour maximiser votre
+                impact et votre visibilité.
+              </p>
+              <a href="#" class="service-link"
+                >En savoir plus <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="service" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+            <div class="service-content">
+              <h3 class="service-title">Design Graphique</h3>
+              <p class="service-desc">
+                Création d'identités visuelles uniques, logos, chartes
+                graphiques et supports marketing.
+              </p>
+              <a href="#" class="service-link"
+                >En savoir plus <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="service" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-icon"><i class="fas fa-globe"></i></div>
+            <div class="service-content">
+              <h3 class="service-title">Web & Digital</h3>
+              <p class="service-desc">
+                Développement de sites web performants et solutions digitales
+                innovantes.
+              </p>
+              <a href="#" class="service-link"
+                >En savoir plus <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="service" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-icon"><i class="fas fa-video"></i></div>
+            <div class="service-content">
+              <h3 class="service-title">Production Vidéo</h3>
+              <p class="service-desc">
+                Création de contenus vidéo impactants pour tous vos besoins de
+                communication.
+              </p>
+              <a href="#" class="service-link"
+                >En savoir plus <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="services-cta">
+          <a href="#" class="btn btn-primary">Voir tous nos services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Process -->
+    <section class="process-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Notre Approche</span>
+          <h2 class="section-title">Comment nous travaillons</h2>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h3>Consultation</h3>
+            <p>
+              Nous écoutons vos besoins et objectifs pour comprendre votre
+              projet.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h3>Stratégie</h3>
+            <p>
+              Nous élaborons une stratégie personnalisée adaptée à vos
+              objectifs.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h3>Création</h3>
+            <p>Nous créons et développons les solutions proposées.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h3>Résultats</h3>
+            <p>Nous mesurons et optimisons les résultats obtenus.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Témoignages</span>
+          <h2>Ce que disent nos clients</h2>
+        </div>
+
+        <div class="testimonial-slider">
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>
+                "Une équipe à l'écoute, réactive et créative. Notre visibilité a
+                vraiment décollé !"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://placehold.co/60x60"
+                alt="Sophie M."
+                class="author-image"
+              />
+              <div class="author-info">
+                <h4>Sophie M.</h4>
+                <span>Directrice Marketing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Autres témoignages similaires -->
+        </div>
+
+        <div class="testimonial-controls">
+          <button class="prev-testimonial">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="next-testimonial">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Derniers Projets -->
+    <section class="recent-projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Portfolio</span>
+          <h2>Nos Dernières Réalisations</h2>
+        </div>
+
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">Tous</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="print">Print</button>
+          <button class="filter-btn" data-filter="branding">Branding</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Projets -->
+        </div>
+
+        <div class="projects-cta">
+          <a href="#" class="btn btn-primary">Voir tout le portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-content">
+          <h2>Restez informé</h2>
+          <p>
+            Inscrivez-vous à notre newsletter pour recevoir nos dernières
+            actualités et conseils.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Votre adresse mail" />
+            <button type="submit" class="btn btn-outline">S'inscrire</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        <div>
+          <p class="footer-description">
+            Votre partenaire en communication globale depuis 2010.
+          </p>
+        </div>
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Marketing Digital</a></li>
+              <li><a href="#">Design Graphique</a></li>
+              <li><a href="#">Développement Web</a></li>
+              <li><a href="#">Communication Print</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Liens Utiles</h3>
+            <ul>
+              <li><a href="#">À propos</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Contact</h3>
+            <ul class="footer-contact">
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span
+                  >123 Rue de la Communication<br />75000 Paris, France</span
+                >
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>01 23 45 67 89</span>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <span>contact@template.fr</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            &copy; 2025 Template. Tous droits réservés.
+          </div>
+          <div class="footer-links">
+            <a href="#">Mentions légales</a>
+            <a href="#">Politique de confidentialité</a>
+            <a href="#">CGV</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bouton Retour en haut -->
+    <button id="back-to-top" title="Retour en haut">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

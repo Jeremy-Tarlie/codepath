@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BoutiqueEnLigne - Votre Destination Shopping</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-top">
+          <div class="logo">BoutiqueEnLigne</div>
+          <div class="search-bar">
+            <input
+              type="text"
+              placeholder="Rechercher un produit..."
+              id="search-input"
+            />
+            <div
+              id="search-suggestions"
+              style="
+                display: none;
+                position: absolute;
+                width: 100%;
+                background: white;
+                border-radius: 0 0 8px 8px;
+                box-shadow: var(--box-shadow);
+                z-index: 100;
+                max-height: 300px;
+                overflow-y: auto;
+              "
+            ></div>
+          </div>
+
+          <div class="user-actions">
+            <a href="#"><i class="fas fa-user"></i> Mon Compte</a>
+            <a href="#"><i class="fas fa-heart"></i> Favoris</a>
+            <a href="#"><i class="fas fa-shopping-cart"></i> Panier (0)</a>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <div class="container">
+          <ul class="nav-menu">
+            <li><a href="#">Accueil</a></li>
+            <li>
+              <a href="#">Catégories <i class="fas fa-chevron-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Électronique</a></li>
+                <li><a href="#">Mode</a></li>
+                <li><a href="#">Maison & Jardin</a></li>
+                <li><a href="#">Sports & Loisirs</a></li>
+                <li><a href="#">Beauté & Santé</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Nouveautés</a></li>
+            <li><a href="#">Promotions</a></li>
+            <li><a href="#">Meilleures Ventes</a></li>
+            <li><a href="#">À Propos</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="slideInLeft">Découvrez Notre Nouvelle Collection</h1>
+        <p class="slideInRight">
+          Des produits de qualité sélectionnés pour vous. Profitez de nos offres
+          exclusives et de la livraison gratuite pour les commandes de plus de
+          50€.
+        </p>
+        <div style="animation: fadeIn 1s ease 0.6s forwards; opacity: 0">
+          <a href="#" class="btn pulseScale">Découvrir</a>
+          <a href="#" class="btn btn-secondary">Promotions</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="categories">
+      <div class="container">
+        <h2 class="section-title">Nos Catégories</h2>
+        <div class="categories-grid">
+          <div class="category-card">
+            <img src="https://placehold.co/400x320" alt="Électronique" />
+            <div class="category-content">
+              <h3>Électronique</h3>
+              <p>Découvrez nos gadgets</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <img src="https://placehold.co/400x320" alt="Mode" />
+            <div class="category-content">
+              <h3>Mode</h3>
+              <p>Tendances actuelles</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <img src="https://placehold.co/400x320" alt="Maison" />
+            <div class="category-content">
+              <h3>Maison & Jardin</h3>
+              <p>Décorez votre espace</p>
+            </div>
+          </div>
+          <div class="category-card">
+            <img src="https://placehold.co/400x320" alt="Sport" />
+            <div class="category-content">
+              <h3>Sports & Loisirs</h3>
+              <p>Restez actif</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products">
+      <div class="container">
+        <h2 class="section-title">Produits Populaires</h2>
+        <div class="products-grid">
+          <!-- Product 1 -->
+          <div class="product-card fadeIn">
+            <div class="product-image">
+              <img src="https://placehold.co/300x300" alt="Produit 1" />
+            </div>
+            <div class="product-info">
+              <div class="product-category">Électronique</div>
+              <h3 class="product-name">Écouteurs sans fil</h3>
+              <div class="product-price">89,99 €</div>
+              <div class="product-buttons">
+                <a href="#" class="btn">Acheter</a>
+                <a href="#" class="btn btn-secondary"
+                  ><i class="fas fa-shopping-cart"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card fadeIn">
+            <div class="product-image">
+              <img src="https://placehold.co/300x300" alt="Produit 2" />
+            </div>
+            <div class="product-info">
+              <div class="product-category">Mode</div>
+              <h3 class="product-name">Montre élégante</h3>
+              <div class="product-price">129,99 €</div>
+              <div class="product-buttons">
+                <a href="#" class="btn">Acheter</a>
+                <a href="#" class="btn btn-secondary"
+                  ><i class="fas fa-shopping-cart"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card fadeIn">
+            <div class="product-image">
+              <img src="https://placehold.co/300x300" alt="Produit 3" />
+            </div>
+            <div class="product-info">
+              <div class="product-category">Maison</div>
+              <h3 class="product-name">Lampe design</h3>
+              <div class="product-price">59,99 €</div>
+              <div class="product-buttons">
+                <a href="#" class="btn">Acheter</a>
+                <a href="#" class="btn btn-secondary"
+                  ><i class="fas fa-shopping-cart"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="product-card fadeIn">
+            <div class="product-image">
+              <img src="https://placehold.co/300x300" alt="Produit 4" />
+            </div>
+            <div class="product-info">
+              <div class="product-category">Sport</div>
+              <h3 class="product-name">Sac de sport</h3>
+              <div class="product-price">45,99 €</div>
+              <div class="product-buttons">
+                <a href="#" class="btn">Acheter</a>
+                <a href="#" class="btn btn-secondary"
+                  ><i class="fas fa-shopping-cart"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section class="promotions">
+      <div class="container">
+        <h2 class="section-title">Offres Spéciales</h2>
+        <div class="promo-container">
+          <!-- Promo 1 -->
+          <div class="promo-card">
+            <div
+              class="promo-tag"
+              style="animation: pulseScale 2s infinite ease-in-out"
+            >
+              -30%
+            </div>
+            <div class="promo-image">
+              <img src="https://placehold.co/400x300" alt="Promo 1" />
+            </div>
+            <div class="promo-content">
+              <h3>Grande Vente d'Été</h3>
+              <p>
+                Jusqu'à 30% de réduction sur une sélection d'articles de mode.
+              </p>
+              <a href="#" class="btn">En savoir plus</a>
+            </div>
+          </div>
+
+          <!-- Promo 2 -->
+          <div class="promo-card">
+            <div
+              class="promo-tag"
+              style="animation: pulseScale 2s infinite ease-in-out"
+            >
+              Nouveauté
+            </div>
+            <div class="promo-image">
+              <img src="https://placehold.co/400x300" alt="Promo 2" />
+            </div>
+            <div class="promo-content">
+              <h3>Collection Automne</h3>
+              <p>Découvrez notre nouvelle collection de vêtements d'automne.</p>
+              <a href="#" class="btn">Découvrir</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+      <div class="container">
+        <div class="newsletter-container">
+          <h2>Restez Informé</h2>
+          <p>
+            Inscrivez-vous à notre newsletter pour recevoir les dernières
+            nouvelles, offres spéciales et réductions exclusives.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Votre adresse email" />
+            <button type="submit" class="pulseScale">S'abonner</button>
+          </form>
+
+          <div
+            id="confirmation-message"
+            style="
+              display: none;
+              margin-top: 20px;
+              padding: 10px;
+              background: rgba(255, 255, 255, 0.2);
+              border-radius: 4px;
+              animation: fadeIn 0.5s ease forwards;
+            "
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Column 1 -->
+          <div class="footer-column">
+            <h3>BoutiqueEnLigne</h3>
+            <p>
+              Votre destination shopping en ligne préférée pour des produits de
+              qualité à prix compétitifs.
+            </p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="footer-column">
+            <h3>Catégories</h3>
+            <ul class="footer-menu">
+              <li><a href="#">Électronique</a></li>
+              <li><a href="#">Mode</a></li>
+              <li><a href="#">Maison & Jardin</a></li>
+              <li><a href="#">Sports & Loisirs</a></li>
+              <li><a href="#">Beauté & Santé</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="footer-column">
+            <h3>Liens Utiles</h3>
+            <ul class="footer-menu">
+              <li><a href="#">À Propos de Nous</a></li>
+              <li><a href="#">Contactez-Nous</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Conditions Générales</a></li>
+              <li><a href="#">Politique de Confidentialité</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4 -->
+          <div class="footer-column">
+            <h3>Contact</h3>
+            <ul class="footer-contact footer-menu">
+              <li>
+                <i class="fas fa-map-marker-alt"></i> 123 Rue du Commerce, 75000
+                Paris
+              </li>
+              <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
+              <li>
+                <i class="fas fa-envelope"></i> contact@boutique-en-ligne.fr
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 BoutiqueEnLigne. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
