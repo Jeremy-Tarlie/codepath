@@ -13,6 +13,8 @@ function openModal() {
     // Récupérer les informations du devis
     const typeAppInput = document.getElementById('typeAppInput');
     const typeProjetInput = document.getElementById('typeProjetInput');
+    const emailInput = document.getElementById('email');
+    const commentInput = document.getElementById('comment');
     const selectedOptions = Array.from(document.querySelectorAll('input[name="options[]"]:checked'));
     const totalAmount = document.querySelector('.total-amount');
 
@@ -48,6 +50,19 @@ function openModal() {
             li.appendChild(optionPrice);
             modalOptionsList.appendChild(li);
         });
+    }
+
+    // Mettre à jour l'email
+    const modalEmail = document.getElementById('modal-email-value');
+    console.log(modalEmail);
+    if (modalEmail && emailInput.value) {
+        modalEmail.textContent = emailInput.value;
+    }
+
+    // Mettre à jour le commentaire
+    const modalComment = document.getElementById('modal-comment-value');
+    if (modalComment && commentInput.value) {
+        modalComment.textContent = commentInput.value;
     }
 
     // Mettre à jour le prix total

@@ -65,15 +65,23 @@
           <div class="form-group">
             <label>Options :</label>
             <div id="optionsContainer" class="options-container">
-              <div class="option-item"></div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="customOptions">Options personnalisées :</label>
+            <label for="email">Email :</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Entrez votre email..."
+            />
+          </div>
+          <div class="form-group">
+            <label for="comment">Commentaire :</label>
             <textarea
-              id="customOptions"
-              name="customOptions"
+              id="comment"
+              name="comment"
               rows="3"
               placeholder="Décrivez vos options personnalisées ici..."
             ></textarea>
@@ -163,6 +171,7 @@
           <div class="modal-body">
               <!-- Informations du projet -->
               <div class="info-section">
+
                   <div class="info-row">
                       <div class="info-icon">🌐</div>
                       <div class="info-content">
@@ -184,24 +193,21 @@
               <div class="options-section">
                   <h3 class="section-title">Options sélectionnées</h3>
                   <ul class="options-list" id="modal-options-list">
-                      <li class="option-item">
-                          <span class="option-name">Design responsive</span>
-                          <span class="option-price">+150€</span>
-                      </li>
-                      <li class="option-item">
-                          <span class="option-name">Optimisation SEO</span>
-                          <span class="option-price">+200€</span>
-                      </li>
-                      <li class="option-item">
-                          <span class="option-name">Système de contact</span>
-                          <span class="option-price">+100€</span>
-                      </li>
-                      <li class="option-item">
-                          <span class="option-name">Galerie d'images</span>
-                          <span class="option-price">+75€</span>
-                      </li>
+                      
                   </ul>
               </div>
+
+              <!-- Email -->
+              <div class="email">
+                <label for="email">Email :</label>
+                <p id="modal-email-value"  class="option-item" style="margin: 1rem 0 ;"></p>
+              </div>
+              <!-- Commentaire -->
+              <div class="comment">
+                <label for="comment">Commentaire :</label>
+                <p id="modal-comment-value" class="option-item" style="margin: 1rem 0 ;"></p>
+              </div>
+
 
               <!-- Prix total -->
               <div class="price-section">
