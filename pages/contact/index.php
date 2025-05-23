@@ -11,7 +11,7 @@ $_SESSION['form_display_time'] = time();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - WebCreator</title>
+    <title>Contact - CodePath</title>
     <link rel="stylesheet" href="/codepath/style.css">
     <link rel="stylesheet" href="/codepath/pages/contact/contact.css">
 </head>
@@ -25,7 +25,7 @@ $_SESSION['form_display_time'] = time();
 
     <nav>
         <div class="nav-container">
-            <div class="logo"><a href="/index.html">WebCreator</a></div>
+            <div class="logo"><a href="/index.html">CodePath</a></div>
             <div class="menu">
                 <a href="/index.html#services">Services</a>
                 <a href="/index.html#templates">Templates</a>
@@ -49,7 +49,7 @@ $_SESSION['form_display_time'] = time();
                         <i class="icon">📧</i>
                         <div>
                             <h3>Email</h3>
-                            <p>contact@webcreator.com</p>
+                            <p>contact@codepath.com</p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -122,7 +122,7 @@ $_SESSION['form_display_time'] = time();
     <footer>
         <div class="footer-container">
             <div class="footer-col">
-                <h3>WebCreator</h3>
+                <h3>CodePath</h3>
                 <p>Création de sites web professionnels sur mesure pour booster votre présence en ligne.</p>
                 <ul class="footer-links">
                     <li><a href="./mentions-legales.html">Mentions Légales</a></li>
@@ -148,13 +148,13 @@ $_SESSION['form_display_time'] = time();
             <div class="footer-col">
                 <h3>Contact</h3>
                 <ul class="footer-links">
-                    <li><a href="mailto:contact@webcreator.com">Email: contact@webcreator.com</a></li>
+                    <li><a href="mailto:contact@codepath.com">Email: contact@codepath.com</a></li>
                     <li><a href="tel:+33123456789">Téléphone: +33 1 23 45 67 89</a></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 WebCreator. Tous droits réservés.</p>
+            <p>&copy; 2025 CodePath. Tous droits réservés.</p>
         </div>
     </footer>
 
