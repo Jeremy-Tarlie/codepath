@@ -162,6 +162,10 @@
       "gestion_site": {
         "name": "gestion_site",
         "price": 1000
+      },
+      "design_responsive": {
+        "name": "design_responsive",
+        "price": 1000
       }
     },
     "option_mobile": {

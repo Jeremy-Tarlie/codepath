@@ -6,15 +6,17 @@ if (!isset($_SESSION['csrf_token'])) {
 // Initialisation du délai anti-bot
 $_SESSION['form_display_time'] = time();
 ?>
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - CodePath</title>
     <link rel="stylesheet" href="/codepath/style.css">
-    <link rel="stylesheet" href="/codepath/pages/contact/contact.css">
+    <link rel="stylesheet" href="./contact.css">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -87,14 +89,19 @@ $_SESSION['form_display_time'] = time();
 
                     <div class="form-group">
                         <label for="reason">Raison du contact</label>
+                        <?php
+                            $devis = isset($_GET['devis']) ? $_GET['devis'] : '';
+                            $devis = $devis !== "1" && $devis !== "2" && $devis !== "3" ? '' : $devis;
+                        ?>
                         <select id="reason" name="reason" required>
-                            <option value="" disabled selected>Sélectionnez une raison</option>
-                            <option value="site-vitrine">Site Vitrine (50€)</option>
-                            <option value="site-dynamique">Site Dynamique (800€)</option>
-                            <option value="site-sur-mesure">Site Sur Mesure</option>
+                            <option value="" disabled <?= $devis === '' ? 'selected' : '' ?>>Sélectionnez une raison</option>
+                            <option value="site-vitrine" <?= $devis == 1 ? 'selected' : '' ?>>Site Vitrine (50€)</option>
+                            <option value="site-dynamique" <?= $devis == 2 ? 'selected' : '' ?>>Site Dynamique (800€)</option>
+                            <option value="site-sur-mesure" <?= $devis == 3 ? 'selected' : '' ?>>Site Sur Mesure</option>
                             <option value="question">Question générale</option>
                             <option value="autre">Autre</option>
                         </select>
+
                     </div>
 
                     <div class="form-group">
@@ -160,46 +167,49 @@ $_SESSION['form_display_time'] = time();
 
     <script src="https://www.google.com/recaptcha/api.js?render=6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x"></script>
     <script>
-    grecaptcha.ready(function() {
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            grecaptcha.execute('6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x', {action: 'contact'}).then(function(token) {
-                const formData = new FormData(document.getElementById('contactForm'));
-                formData.append('g-recaptcha-response', token);
-                fetch('./validator.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    const msgDiv = document.getElementById('formMessage');
-                    if (data.success) {
-                        msgDiv.innerHTML = '<span style="color:green;">' + data.message + '</span>';
-                        document.getElementById('contactForm').reset();
-                        fetch('./get_csrf_token.php')
-                            .then(res => res.json())
-                            .then(tokenData => {
-                                if (tokenData.csrf_token) {
-                                    document.querySelector('input[name="csrf_token"]').value = tokenData.csrf_token;
+        grecaptcha.ready(function() {
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                grecaptcha.execute('6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x', {
+                    action: 'contact'
+                }).then(function(token) {
+                    const formData = new FormData(document.getElementById('contactForm'));
+                    formData.append('g-recaptcha-response', token);
+                    fetch('./validator.php', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            const msgDiv = document.getElementById('formMessage');
+                            if (data.success) {
+                                msgDiv.innerHTML = '<span style="color:green;">' + data.message + '</span>';
+                                document.getElementById('contactForm').reset();
+                                fetch('./get_csrf_token.php')
+                                    .then(res => res.json())
+                                    .then(tokenData => {
+                                        if (tokenData.csrf_token) {
+                                            document.querySelector('input[name="csrf_token"]').value = tokenData.csrf_token;
+                                        }
+                                    });
+                            } else {
+                                let errorMessage = data.message;
+                                if (data.errors) {
+                                    errorMessage += '<br>' + data.errors.join('<br>');
                                 }
-                            });
-                    } else {
-                        let errorMessage = data.message;
-                        if (data.errors) {
-                            errorMessage += '<br>' + data.errors.join('<br>');
-                        }
-                        if (data.error) {
-                            errorMessage += '<br>Détails techniques : ' + data.error;
-                        }
-                        msgDiv.innerHTML = '<span style="color:red;">' + errorMessage + '</span>';
-                    }
-                })
-                .catch(error => {
-                    document.getElementById('formMessage').innerHTML = '<span style="color:red;">Erreur lors de l\'envoi du formulaire : ' + error.message + '</span>';
+                                if (data.error) {
+                                    errorMessage += '<br>Détails techniques : ' + data.error;
+                                }
+                                msgDiv.innerHTML = '<span style="color:red;">' + errorMessage + '</span>';
+                            }
+                        })
+                        .catch(error => {
+                            document.getElementById('formMessage').innerHTML = '<span style="color:red;">Erreur lors de l\'envoi du formulaire : ' + error.message + '</span>';
+                        });
                 });
             });
         });
-    });
     </script>
 </body>
+
 </html>

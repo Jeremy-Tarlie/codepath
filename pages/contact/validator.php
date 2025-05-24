@@ -277,11 +277,11 @@ try {
     $mail->addAddress($env['MAIL_TO']);
     $mail->addReplyTo($_POST['email'], $_POST['name']);
 
-    // Nettoyage des données avant l'envoi
-    $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
-    $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
-    $reason = htmlspecialchars($_POST['reason'], ENT_QUOTES, 'UTF-8');
-    $message = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
+    // Nettoyage des données
+    $name = isset($_POST['name']) ? htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8') : '';
+    $email = isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8') : '';
+    $reason = isset($_POST['reason']) ? htmlspecialchars($_POST['reason'], ENT_QUOTES, 'UTF-8') : '';
+    $message = isset($_POST['message']) ? htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8') : '';
     $phone = !empty($_POST['phone']) ? htmlspecialchars($_POST['phone'], ENT_QUOTES, 'UTF-8') : '';
 
     // Contenu de l'email
