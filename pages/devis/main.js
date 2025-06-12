@@ -309,6 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const selectedOptions = Array.from(
           document.querySelectorAll('input[name="options[]"]:checked')
       ).map((checkbox) => checkbox.value);
+      const nbPages = parseInt(document.getElementById('nbPages').value) || 1;
 
       let total = 0;
 
@@ -332,6 +333,9 @@ document.addEventListener("DOMContentLoaded", function () {
           });
       }
 
+      // Ajouter 100€ par page
+      total += (nbPages - 1) * 100; // -1 car la première page est incluse dans le prix de base
+
       // Mettre à jour l'affichage du total
       let totalContainer = document.querySelector(".total-container");
       if (!totalContainer) {
@@ -352,4 +356,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Ajouter les écouteurs d'événements pour le calcul en temps réel
   typeProjetInput.addEventListener("change", updateTotal);
+  
+  // Ajouter l'écouteur pour le nombre de pages
+  document.getElementById('nbPages').addEventListener('input', updateTotal);
 });

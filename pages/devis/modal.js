@@ -74,6 +74,13 @@ function openModal(typeApp, typeProjet, email, comment) {
         modalTypeProjet.textContent = typeProjet;
     }
 
+    // Mettre à jour le nombre de pages
+    const modalNbPages = document.getElementById("modal-nb-pages-value");
+    if (modalNbPages) {
+        const nbPages = document.getElementById("nbPages").value;
+        modalNbPages.textContent = nbPages + ' pages';
+    }
+
     // Mettre à jour la liste des options
     const modalOptionsList = document.getElementById("modal-options-list");
     if (modalOptionsList) {
@@ -131,6 +138,7 @@ function validateQuote() {
     const email = document.getElementById("modal-email-value").textContent;
     const comment = document.getElementById("modal-comment-value").textContent;
     const total = document.getElementById("modal-price-amount").textContent;
+    const nbPages = document.getElementById("modal-nb-pages-value").textContent;
 
     // Récupérer les options sélectionnées
     const options = Array.from(document.querySelectorAll("#modal-options-list .option-name"))
@@ -158,6 +166,7 @@ function validateQuote() {
             formData.append('email', email);
             formData.append('comment', comment);
             formData.append('total', total);
+            formData.append('nbPages', nbPages);
             formData.append('csrf_token', csrfToken);
             formData.append('g-recaptcha-response', token);
             options.forEach(opt => formData.append('options[]', opt));

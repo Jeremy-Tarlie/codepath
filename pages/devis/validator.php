@@ -2,6 +2,7 @@
 // NE RIEN METTRE AVANT CE PHP, PAS D'ESPACE, PAS DE LIGNE VIDE
 set_time_limit(10);
 
+// Bloquer les requêtes trop volumineuses
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && (int) $_SERVER['CONTENT_LENGTH'] > 10240) {
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode([
@@ -11,11 +12,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && (int) $_SERVER['CONTENT_LENGTH'] > 
     exit;
 }
 
+// Sécurité et erreurs
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
-register_shutdown_function(function() {
+// Gestion des erreurs fatales
+register_shutdown_function(function () {
     $error = error_get_last();
     if ($error !== null) {
         header('Content-Type: application/json; charset=utf-8');
@@ -27,6 +30,7 @@ register_shutdown_function(function() {
     }
 });
 
+// Toujours envoyer du JSON
 header('Content-Type: application/json; charset=utf-8');
 
 function sendJsonResponse($success, $message, $error = null) {
@@ -41,6 +45,7 @@ function sendJsonResponse($success, $message, $error = null) {
     exit;
 }
 
+// Chargement de la config .env
 $envFile = __DIR__ . '/../../.env';
 if (!file_exists($envFile)) {
     sendJsonResponse(false, 'Fichier de configuration manquant');
@@ -55,6 +60,8 @@ foreach ($requiredEnvVars as $var) {
         sendJsonResponse(false, "Configuration manquante : $var");
     }
 }
+
+// Validation du formulaire
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     sendJsonResponse(false, 'Méthode non autorisée');
 }
@@ -74,12 +81,14 @@ if (empty($_POST['g-recaptcha-response'])) {
     sendJsonResponse(false, 'Veuillez valider le reCAPTCHA.');
 }
 if (empty($env['RECAPTCHA_SECRET'])) {
-    sendJsonResponse(false, 'Clé secrète reCAPTCHA manquante dans la configuration.');
+    sendJsonResponse(false, 'Clé secrète reCAPTCHA manquante.');
 }
-$recaptchaSecret = $env['RECAPTCHA_SECRET'];
-$recaptchaResponse = $_POST['g-recaptcha-response'];
+
+// Vérification reCAPTCHA
 $recaptcha = file_get_contents(
-    'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($recaptchaSecret) . '&response=' . urlencode($recaptchaResponse) . '&remoteip=' . $_SERVER['REMOTE_ADDR']
+    'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($env['RECAPTCHA_SECRET']) .
+    '&response=' . urlencode($_POST['g-recaptcha-response']) .
+    '&remoteip=' . $_SERVER['REMOTE_ADDR']
 );
 $recaptcha = json_decode($recaptcha, true);
 if (!$recaptcha['success']) {
@@ -88,6 +97,7 @@ if (!$recaptcha['success']) {
 if (!isset($recaptcha['score']) || $recaptcha['score'] < 0.5) {
     sendJsonResponse(false, 'Score reCAPTCHA trop faible, suspicion de robot.');
 }
+
 // Champs requis
 $requiredFields = ['typeApp', 'typeProjet', 'email', 'total'];
 foreach ($requiredFields as $field) {
@@ -109,11 +119,11 @@ if (!checkdnsrr($emailDomain, 'MX')) {
 if (isset($_SESSION['form_display_time']) && (time() - $_SESSION['form_display_time'] < 3)) {
     sendJsonResponse(false, 'Envoi trop rapide, êtes-vous un robot ?');
 }
-// Honeypot (optionnel)
 if (!empty($_POST['website'])) {
     sendJsonResponse(false, 'Spam détecté.');
 }
-// Limite de tentatives par IP (5 messages max par heure)
+
+// Limite d'envoi par IP
 $ip = $_SERVER['REMOTE_ADDR'];
 $ipFile = sys_get_temp_dir() . '/devis_' . md5($ip);
 $ipLimit = 5;
@@ -123,83 +133,83 @@ if (time() - $ipData['time'] > 3600) {
 }
 $ipData['count']++;
 if ($ipData['count'] > $ipLimit) {
-    sendJsonResponse(false, 'Trop de devis envoyés depuis cette adresse IP. Réessayez plus tard.');
+    sendJsonResponse(false, 'Trop de devis envoyés depuis cette IP. Réessayez plus tard.');
 }
 file_put_contents($ipFile, json_encode($ipData));
-// Chargement de PHPMailer
+
+// PHPMailer
 require_once __DIR__ . '/../../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-// Charger les prix depuis le JSON
+
+// Lecture des prix
 $jsonFile = __DIR__ . '/create_devis.json';
 $prixOptions = [];
 if (file_exists($jsonFile)) {
     $jsonData = json_decode(file_get_contents($jsonFile), true);
-    // Déterminer le type d'option (web, mobile, desktop)
+    $typeApp = $_POST['typeApp'];
     $typeOption = '';
-    if (strpos($typeApp, 'web') !== false) {
-        $typeOption = 'option_web';
-    } elseif (strpos($typeApp, 'mobile') !== false) {
-        $typeOption = 'option_mobile';
-    } elseif (strpos($typeApp, 'desktop') !== false) {
-        $typeOption = 'option_desktop';
-    }
+    if (strpos($typeApp, 'web') !== false) $typeOption = 'option_web';
+    elseif (strpos($typeApp, 'mobile') !== false) $typeOption = 'option_mobile';
+    elseif (strpos($typeApp, 'desktop') !== false) $typeOption = 'option_desktop';
     if ($typeOption && isset($jsonData['option'][$typeOption])) {
         $prixOptions = $jsonData['option'][$typeOption];
     }
 }
+
 try {
     $mail = new PHPMailer(true);
     $mail->isSMTP();
-    $mail->Host = $env['SMTP_HOST'];
-    $mail->SMTPAuth = true;
-    $mail->Username = $env['SMTP_USERNAME'];
-    $mail->Password = $env['SMTP_PASSWORD'];
+    $mail->Host       = $env['SMTP_HOST'];
+    $mail->SMTPAuth   = true;
+    $mail->Username   = $env['SMTP_USERNAME'];
+    $mail->Password   = $env['SMTP_PASSWORD'];
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port = (int)$env['SMTP_PORT'];
-    $mail->CharSet = 'UTF-8';
-    $mail->Timeout = 10;
-    $mail->SMTPDebug = 2;
-    $mail->Debugoutput = 'error_log';
+    $mail->Port       = (int) $env['SMTP_PORT'];
+    $mail->CharSet    = 'UTF-8';
+    $mail->Timeout    = 10;
+    $mail->SMTPDebug  = 0; // ⚠️ Désactiver la sortie de debug
     $mail->setFrom($env['SMTP_USERNAME'], 'Formulaire Devis');
     $mail->addAddress($env['MAIL_TO']);
     $mail->addReplyTo($_POST['email']);
-    // Nettoyage des données
-    $typeApp = isset($_POST['typeApp']) ? htmlspecialchars($_POST['typeApp'], ENT_QUOTES, 'UTF-8') : '';
-    $typeProjet = isset($_POST['typeProjet']) ? htmlspecialchars($_POST['typeProjet'], ENT_QUOTES, 'UTF-8') : '';
-    $email = isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8') : '';
-    $comment = isset($_POST['comment']) ? htmlspecialchars($_POST['comment'], ENT_QUOTES, 'UTF-8') : '';
-    $total = isset($_POST['total']) ? htmlspecialchars($_POST['total'], ENT_QUOTES, 'UTF-8') : '';
-    $options = isset($_POST['options']) && is_array($_POST['options']) ? array_map(function($opt) {
+
+    // Nettoyage
+    $typeApp = htmlspecialchars($_POST['typeApp'], ENT_QUOTES, 'UTF-8');
+    $typeProjet = htmlspecialchars($_POST['typeProjet'], ENT_QUOTES, 'UTF-8');
+    $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
+    $comment = !empty($_POST['comment']) ? htmlspecialchars($_POST['comment'], ENT_QUOTES, 'UTF-8') : '';
+    $nbPages = htmlspecialchars($_POST['nbPages'], ENT_QUOTES, 'UTF-8');
+    $total = htmlspecialchars($_POST['total'], ENT_QUOTES, 'UTF-8');
+    $options = isset($_POST['options']) && is_array($_POST['options']) ? array_map(function ($opt) {
         return htmlspecialchars($opt, ENT_QUOTES, 'UTF-8');
     }, $_POST['options']) : [];
-    // Contenu de l'email
+
+    // Contenu
     $mail->isHTML(true);
     $mail->Subject = "Nouveau devis reçu";
-    $emailContent = "<h2>Nouveau devis reçu</h2>";
-    $emailContent .= "<p><strong>Type d'application :</strong> {$typeApp}</p>";
-    $emailContent .= "<p><strong>Type de projet :</strong> {$typeProjet}</p>";
-    $emailContent .= "<p><strong>Email :</strong> {$email}</p>";
+    $body = "<h2>Nouveau devis reçu</h2>";
+    $body .= "<p><strong>Type d'application :</strong> $typeApp</p>";
+    $body .= "<p><strong>Type de projet :</strong> $typeProjet</p>";
+    $body .= "<p><strong>Email :</strong> $email</p>";
     if (!empty($options)) {
-        $emailContent .= "<h3>Options sélectionnées :</h3><ul>";
+        $body .= "<h3>Options sélectionnées :</h3><ul>";
         foreach ($options as $opt) {
-            $prix = '';
-            if (isset($prixOptions[$opt]['price'])) {
-                $prix = ' : ' . htmlspecialchars($prixOptions[$opt]['price'], ENT_QUOTES, 'UTF-8') . '€';
-            }
-            $emailContent .= "<li>" . htmlspecialchars($opt, ENT_QUOTES, 'UTF-8') . $prix . "</li>";
+            $prix = isset($prixOptions[$opt]['price']) ? ' : ' . htmlspecialchars($prixOptions[$opt]['price'], ENT_QUOTES, 'UTF-8') . '€' : '';
+            $body .= "<li>$opt$prix</li>";
         }
-        $emailContent .= "</ul>";
+        $body .= "</ul>";
     }
     if (!empty($comment)) {
-        $emailContent .= "<p><strong>Commentaire :</strong> {$comment}</p>";
+        $body .= "<p><strong>Commentaire :</strong> $comment</p>";
     }
-    $emailContent .= "<p><strong>Total estimé :</strong> {$total}</p>";
-    $mail->Body = $emailContent;
-    $mail->AltBody = strip_tags($emailContent);
+    $body .= "<p><strong>Nombre de pages :</strong> $nbPages</p>";
+    $body .= "<p><strong>Total estimé :</strong> $total</p>";
+    $mail->Body = $body;
+    $mail->AltBody = strip_tags($body);
+
     $mail->send();
     sendJsonResponse(true, 'Votre devis a été envoyé avec succès !');
+
 } catch (Exception $e) {
-    sendJsonResponse(false, 'Une erreur est survenue lors de l\'envoi du devis', $e->getMessage());
+    sendJsonResponse(false, 'Une erreur est survenue lors de l\'envoi du devis.', $e->getMessage());
 }

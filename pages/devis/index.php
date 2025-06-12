@@ -79,6 +79,20 @@ $_SESSION['form_display_time'] = time();
                 </div>
 
                 <div class="form-group">
+                    <label for="nbPages">Nombre de pages :</label>
+                    <input
+                        type="number"
+                        id="nbPages"
+                        name="nbPages"
+                        min="1"
+                        value="1"
+                        placeholder="Entrez le nombre de pages..."
+                        required 
+                        onchange="updateTotal()"
+                        />
+                </div>
+
+                <div class="form-group">
                     <label>Options :</label>
                     <div id="optionsContainer" class="options-container">
                         <!-- Les options JS s'affichent ici -->
@@ -100,7 +114,7 @@ $_SESSION['form_display_time'] = time();
                         id="comment"
                         name="comment"
                         rows="3"
-                        placeholder="Décrivez vos options personnalisées ici..."></textarea>
+                        placeholder="Décrivez votre projet et vos besoins, ainsi que vos options personnalisées ici..."></textarea>
                 </div>
 
                 <div class="total-container">
@@ -196,6 +210,14 @@ $_SESSION['form_display_time'] = time();
                         <div class="info-content">
                             <div class="info-label">Type de projet</div>
                             <div class="info-value" id="modal-type-projet-value"></div>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <div class="info-icon">📄</div>
+                        <div class="info-content">
+                            <div class="info-label">Nombre de pages</div>
+                            <div class="info-value" id="modal-nb-pages-value"></div>
                         </div>
                     </div>
 
