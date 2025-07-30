@@ -1,0 +1,31 @@
+RewriteEngine On
+
+# Protection des fichiers PHP sensibles
+RewriteRule ^pages/.*/(get_csrf_token|validator)\.php$ - [F,L]
+
+# Redirection pour /price vers /pages/price/index.html
+RewriteRule ^price/?$ pages/price/index.html [L]
+
+# Redirection pour /contact vers /pages/contact/index.php
+RewriteRule ^contact/?$ pages/contact/index.php [L]
+
+# Redirection pour /devis vers /pages/devis/index.php
+RewriteRule ^devis/?$ pages/devis/index.php [L]
+
+# Redirection pour /mentions-legales vers /pages/mentions-legales/mentions-legales.html
+RewriteRule ^mentions-legales/?$ pages/mentions-legales/mentions-legales.html [L]
+
+# Redirections pour les templates
+RewriteRule ^templates/1/?$ templates/assos1/index.html [L]
+RewriteRule ^templates/2/?$ templates/assos2/index.html [L]
+RewriteRule ^templates/3/?$ templates/chateau/index.html [L]
+RewriteRule ^templates/4/?$ templates/commerce/index.html [L]
+RewriteRule ^templates/5/?$ templates/commerce2/index.html [L]
+RewriteRule ^templates/6/?$ templates/post/index.html [L]
+
+# Permettre l'accès aux fichiers statiques
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirection générale pour les autres pages si nécessaire
+# RewriteRule ^([^/]+)/?$ pages/$1/index.html [L] 

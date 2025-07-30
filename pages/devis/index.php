@@ -13,7 +13,7 @@ $_SESSION['form_display_time'] = time();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mes Services et Templates</title>
-    <link rel="stylesheet" href="/codepath/style.css" />
+    <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="./devis.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -28,12 +28,12 @@ $_SESSION['form_display_time'] = time();
 
     <nav>
         <div class="nav-container">
-            <div class="logo"><a href="/index.html">CodePath</a></div>
+            <div class="logo"><a href="/">CodePath</a></div>
             <div class="menu">
                 <a href="#services">Services</a>
                 <a href="#templates">Templates</a>
-                <a href="/pages/contact/index.php">Contact</a>
-                <a href="/pages/price/index.html">Tarifs</a>
+                <a href="/contact/">Contact</a>
+                <a href="/price/">Tarifs</a>
             </div>
         </div>
     </nav>
@@ -149,7 +149,7 @@ $_SESSION['form_display_time'] = time();
                 </p>
                 <ul class="footer-links">
                     <li>
-                        <a href="/pages/mentions-legales/mentions-legales.html">Mentions Légales</a>
+                        <a href="/mentions-legales/">Mentions Légales</a>
                     </li>
                 </ul>
             </div>
@@ -158,7 +158,7 @@ $_SESSION['form_display_time'] = time();
                 <ul class="footer-links">
                     <li><a href="#services">Services</a></li>
                     <li><a href="#templates">Templates</a></li>
-                    <li><a href="/pages/contact/index.php">Contact</a></li>
+                    <li><a href="/contact/">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -173,7 +173,7 @@ $_SESSION['form_display_time'] = time();
                 <h3>Contact</h3>
                 <ul class="footer-links">
                     <li>
-                        <a href="mailto:contact@codepath.com">Email: contact@codepath.com</a>
+                        <a href="mailto:contact@codepath.fr">Email: contact@codepath.fr</a>
                     </li>
                     <li><a href="tel:+33672617996">Téléphone: +33 1 23 45 67 89</a></li>
                 </ul>

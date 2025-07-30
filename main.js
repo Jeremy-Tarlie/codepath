@@ -13,7 +13,7 @@ const templates = {
       "Impact : Amélioration du bien-être collectif",
       "Événements : Rencontres, ateliers et conférences",
     ],
-    link: "/templates/assos1/index.html",
+    link: "/templates/1/",
   },
   template2: {
     title: "Association Nom",
@@ -28,7 +28,7 @@ const templates = {
       "Engagement : Ouvert aux bénévoles et adhérents",
       "Vision : Pour un monde meilleur fondé sur des valeurs fortes",
     ],
-    link: "/templates/assos2/index.html",
+    link: "/templates/2/",
   },
   template3: {
     title: "Château de Hautclair",
@@ -44,7 +44,7 @@ const templates = {
       "Galerie photos immersive",
       "Section contact et réservation en ligne",
     ],
-    link: "/templates/chateau/index.html",
+    link: "/templates/3/",
   },
   
   template4: {
@@ -61,7 +61,7 @@ const templates = {
       "Promotions dynamiques et offres saisonnières",
       "Intégration newsletter et espace client",
     ],
-    link: "/templates/commerce/index.html",
+    link: "/templates/4/",
   },
   
   template5: {
@@ -78,7 +78,7 @@ const templates = {
       "Système de panier interactif",
       "Newsletter avec avantages exclusifs",
     ],
-    link: "/templates/commerce2/index.html",
+    link: "/templates/5/",
   },
   
   template6: {
@@ -95,7 +95,7 @@ const templates = {
       "Témoignages clients et réalisations",
       "Newsletter, contact complet et interface responsive",
     ],
-    link: "/templates/post/index.html",
+    link: "/templates/6/",
   },
 };
 
@@ -307,7 +307,7 @@ function createServiceModal() {
                     </div>
                     
                     <div class="btn-group">
-                        <a href="/pages/contact/index.html" class="btn btn-primary" id="contact-btn">Demander un devis</a>
+                        <a href="/contact/" class="btn btn-primary" id="contact-btn">Demander un devis</a>
                     </div>
                 </div>
             </div>
@@ -405,7 +405,7 @@ function openServiceModal(serviceId) {
   // Gérer le clic sur le bouton de contact
   contactBtn.addEventListener("click", function () {
     serviceModal.style.display = "none";
-    document.querySelector("/pages/contact/index.html").scrollIntoView({ behavior: "smooth" });
+    document.querySelector("/contact/").scrollIntoView({ behavior: "smooth" });
   });
 }
 

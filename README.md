@@ -113,7 +113,7 @@ Ce projet est un site web statique qui peut être servi directement par un serve
 
 ## 📧 Contact
 
-Pour toute question ou demande de devis, n'hésitez pas à me contacter via le formulaire sur le site ou par email à \`contact@codepath.com\`.
+Pour toute question ou demande de devis, n'hésitez pas à me contacter via le formulaire sur le site ou par email à \`contact@codepath.fr\`.
 
 ## 📄 Licence
 
