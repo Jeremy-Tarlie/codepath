@@ -58,7 +58,7 @@ $_SESSION['form_display_time'] = time();
                         <i class="icon">📱</i>
                         <div>
                             <h3>Téléphone</h3>
-                            <p>+33 1 23 45 67 89</p>
+                            <p>+33 6 72 61 79 96</p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -156,7 +156,7 @@ $_SESSION['form_display_time'] = time();
                 <h3>Contact</h3>
                 <ul class="footer-links">
                     <li><a href="mailto:contact@codepath.fr">Email: contact@codepath.fr</a></li>
-                    <li><a href="tel:+33123456789">Téléphone: +33 1 23 45 67 89</a></li>
+                    <li><a href="tel:+33672617996">Téléphone: +33 6 72 61 79 96</a></li>
                 </ul>
             </div>
         </div>

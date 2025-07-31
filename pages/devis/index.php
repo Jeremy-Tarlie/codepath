@@ -175,7 +175,7 @@ $_SESSION['form_display_time'] = time();
                     <li>
                         <a href="mailto:contact@codepath.fr">Email: contact@codepath.fr</a>
                     </li>
-                    <li><a href="tel:+33672617996">Téléphone: +33 1 23 45 67 89</a></li>
+                    <li><a href="tel:+33672617996">Téléphone: +33 6 72 61 79 96</a></li>
                 </ul>
             </div>
         </div>
