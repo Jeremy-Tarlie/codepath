@@ -934,6 +934,58 @@ datalist option:hover {
   }
 }
 
+/* Code promo styles */
+.promo-message {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.promo-message.valid {
+  color: var(--secondary-color);
+  background-color: rgba(46, 204, 113, 0.1);
+  border: 1px solid var(--secondary-color);
+}
+
+.promo-message.invalid {
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+  border: 1px solid #e74c3c;
+}
+
+/* Prix breakdown styles */
+.price-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+}
+
+.original-price {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.discount-info {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.final-price {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
 /* error */
 
 #formMessage {

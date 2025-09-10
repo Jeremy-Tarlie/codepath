@@ -1,0 +1,19 @@
+services:
+  codepath:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: codepath-site
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    restart: unless-stopped
+    env_file:
+      - .env
+
+networks:
+  codepath-network:
+    driver: bridge 

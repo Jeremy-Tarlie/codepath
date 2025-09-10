@@ -17,7 +17,7 @@
     "application_web": {
       "site_vitrine": {
         "name": "site_vitrine",
-        "price": 800
+        "price": 1000
       },
       "site_blog": {
         "name": "site_blog",
@@ -25,31 +25,31 @@
       },
       "site_ecommerce_reservation": {
         "name": "site_ecommerce_reservation",
-        "price": 2500
+        "price": 1500
       },
       "site_portfolio": {
         "name": "site_portfolio",
-        "price": 1000
+        "price": 1300
       },
       "site_streaming": {
         "name": "site_streaming",
-        "price": 4000
+        "price": 2000
       },
       "site_evenementiel": {
         "name": "site_evenementiel",
-        "price": 1800
+        "price": 1400
       },
       "site_intra_extranet": {
         "name": "site_intra_extranet",
-        "price": 3500
+        "price": 1800
       },
       "site_communautaire": {
         "name": "site_communautaire",
-        "price": 3000
+        "price": 1600
       },
       "site_comparateur": {
         "name": "site_comparateur",
-        "price": 2800
+        "price": 1700
       },
       "site_formation": {
         "name": "site_formation",
@@ -75,35 +75,55 @@
     "application_mobile": {
       "application_reseau_sociaux": {
         "name": "application_reseau_sociaux",
-        "price": 4500
+        "price": 2000
       },
       "application_commerce": {
         "name": "application_commerce",
-        "price": 3500
+        "price": 2500
       },
       "application_educative": {
         "name": "application_educative",
-        "price": 2800
+        "price": 1800
       },
       "application_jeux": {
         "name": "application_jeux",
-        "price": 5000
+        "price": 2200
       },
       "application_reservation": {
         "name": "application_reservation",
-        "price": 2500
+        "price": 2100
       },
       "application_lifestyle": {
         "name": "application_lifestyle",
-        "price": 2200
+        "price": 1900
       },
       "application_entreprise": {
         "name": "application_entreprise",
-        "price": 4000
+        "price": 2300
       },
       "application_administrative": {
         "name": "application_administrative",
-        "price": 3200
+        "price": 2400
+      },
+      "application_communautaires": {
+        "name": "application_communautaires",
+        "price": 2100
+      },
+      "application_portfolio": {
+        "name": "application_portfolio",
+        "price": 1850
+      },
+      "application_comparateur": {
+        "name": "application_comparateur",
+        "price": 1950
+      },
+      "application_evenementiel": {
+        "name": "application_evenementiel",
+        "price": 1880
+      },
+      "application_streaming": {
+        "name": "application_streaming",
+        "price": 2300
       },
       "application_fitness": {
         "name": "application_fitness",
@@ -129,27 +149,55 @@
     "application_desktop": {
       "application_productivite": {
         "name": "application_productivite",
-        "price": 2800
+        "price": 1500
       },
       "application_creation": {
         "name": "application_creation",
-        "price": 3500
+        "price": 1800
+      },
+      "application_administrative": {
+        "name": "application_administrative",
+        "price": 1700
       },
       "application_saas": {
         "name": "application_saas",
-        "price": 6000
+        "price": 2000
       },
       "application_devis_facture": {
         "name": "application_devis_facture",
-        "price": 1800
+        "price": 1900
       },
       "application_automatisation": {
         "name": "application_automatisation",
-        "price": 4000
+        "price": 2100
+      },
+      "application_educative": {
+        "name": "application_educative",
+        "price": 1600
       },
       "application_intra_extranet": {
         "name": "application_intra_extranet",
-        "price": 3500
+        "price": 1800
+      },
+      "application_communautaires": {
+        "name": "application_communautaires",
+        "price": 1750
+      },
+      "application_portfolio": {
+        "name": "application_portfolio",
+        "price": 1550
+      },
+      "application_comparateur": {
+        "name": "application_comparateur",
+        "price": 1650
+      },
+      "application_evenementiel": {
+        "name": "application_evenementiel",
+        "price": 1580
+      },
+      "application_streaming": {
+        "name": "application_streaming",
+        "price": 2100
       },
       "application_crm": {
         "name": "application_crm",
@@ -177,51 +225,51 @@
     "option_web": {
       "page_contact": {
         "name": "page_contact",
-        "price": 150
+        "price": 100
       },
       "commentaires": {
         "name": "commentaires",
-        "price": 200
+        "price": 150
       },
       "authentification": {
         "name": "authentification",
-        "price": 400
+        "price": 200
       },
       "chat_en_ligne": {
         "name": "chat_en_ligne",
-        "price": 300
+        "price": 250
       },
       "comparateur_donnees": {
         "name": "comparateur_donnees",
-        "price": 600
+        "price": 300
       },
       "fil_actualite": {
         "name": "fil_actualite",
-        "price": 500
+        "price": 200
       },
       "filtre_recherche": {
         "name": "filtre_recherche",
-        "price": 250
+        "price": 150
       },
       "module_reservation": {
         "name": "module_reservation",
-        "price": 400
+        "price": 250
       },
       "newsletter": {
         "name": "newsletter",
-        "price": 200
+        "price": 100
       },
       "panel_admin": {
         "name": "panel_admin",
-        "price": 800
+        "price": 300
       },
       "panier_paiement": {
         "name": "panier_paiement",
-        "price": 600
+        "price": 400
       },
       "gestion_site": {
         "name": "gestion_site",
-        "price": 500
+        "price": 350
       },
       "design_responsive": {
         "name": "design_responsive",
@@ -259,51 +307,51 @@
     "option_mobile": {
       "authentification": {
         "name": "authentification",
-        "price": 500
+        "price": 200
       },
       "chat_messagerie": {
         "name": "chat_messagerie",
-        "price": 400
+        "price": 300
       },
       "cross_platform": {
         "name": "cross_platform",
-        "price": 800
+        "price": 500
       },
       "fil_actualite": {
         "name": "fil_actualite",
-        "price": 600
+        "price": 250
       },
       "filtre_recherche": {
         "name": "filtre_recherche",
-        "price": 300
+        "price": 200
       },
       "module_reservation": {
         "name": "module_reservation",
-        "price": 500
+        "price": 300
       },
       "newsletter": {
         "name": "newsletter",
-        "price": 250
+        "price": 150
       },
       "notification_push": {
         "name": "notification_push",
-        "price": 300
+        "price": 200
       },
       "paiement_nfc": {
         "name": "paiement_nfc",
-        "price": 800
+        "price": 400
       },
       "panier_reservation": {
         "name": "panier_reservation",
-        "price": 600
+        "price": 350
       },
       "stockage_local": {
         "name": "stockage_local",
-        "price": 200
+        "price": 250
       },
       "notation": {
         "name": "notation",
-        "price": 250
+        "price": 200
       },
       "geolocalisation": {
         "name": "geolocalisation",
@@ -333,51 +381,51 @@
     "option_desktop": {
       "authentification": {
         "name": "authentification",
-        "price": 400
+        "price": 200
       },
       "caisse_enregistreuse": {
         "name": "caisse_enregistreuse",
-        "price": 600
+        "price": 350
       },
       "chat_messagerie": {
         "name": "chat_messagerie",
-        "price": 350
+        "price": 250
       },
       "creation_documents": {
         "name": "creation_documents",
-        "price": 500
+        "price": 300
       },
       "cross_platform": {
         "name": "cross_platform",
-        "price": 700
+        "price": 500
       },
       "drag_drop": {
         "name": "drag_drop",
-        "price": 300
+        "price": 200
       },
       "gestion_donnees": {
         "name": "gestion_donnees",
-        "price": 600
+        "price": 300
       },
       "gestion_fichiers": {
         "name": "gestion_fichiers",
-        "price": 400
+        "price": 250
       },
       "agenda_rdv": {
         "name": "agenda_rdv",
-        "price": 450
+        "price": 250
       },
       "installateur": {
         "name": "installateur",
-        "price": 300
+        "price": 200
       },
       "jeux": {
         "name": "jeux",
-        "price": 800
+        "price": 400
       },
       "tableau_bord": {
         "name": "tableau_bord",
-        "price": 500
+        "price": 300
       },
       "impression_documents": {
         "name": "impression_documents",

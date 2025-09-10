@@ -3,8 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Services et Templates</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>CodePath - Création de Sites Web Professionnels | Développeur Web Freelance</title>
+    <meta name="description" content="Expert en création de sites web professionnels sur mesure. Développeur web freelance spécialisé en conception web, responsive design et SEO. Devis gratuit et personnalisé.">
+    <meta name="keywords" content="création site web, développeur web freelance, conception web, responsive design, SEO, site vitrine, site e-commerce, développement web, France">
+    <meta name="author" content="CodePath - Jérémy TARLIÉ">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="French">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://codepath.fr/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codepath.fr/">
+    <meta property="og:title" content="CodePath - Création de Sites Web Professionnels | Développeur Web Freelance">
+    <meta property="og:description" content="Expert en création de sites web professionnels sur mesure. Développeur web freelance spécialisé en conception web, responsive design et SEO. Devis gratuit et personnalisé.">
+    <meta property="og:image" content="https://codepath.fr/logo-1x1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="CodePath">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://codepath.fr/">
+    <meta property="twitter:title" content="CodePath - Création de Sites Web Professionnels">
+    <meta property="twitter:description" content="Expert en création de sites web professionnels sur mesure. Développeur web freelance spécialisé en conception web, responsive design et SEO.">
+    <meta property="twitter:image" content="https://codepath.fr/logo-1x1.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/logo-1x1.jpg">
+    <link rel="apple-touch-icon" href="/logo-1x1.jpg">
+    
+    <!-- Preconnect pour améliorer les performances -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CodePath",
+        "url": "https://codepath.fr",
+        "logo": "https://codepath.fr/logo-1x1.jpg",
+        "description": "Expert en création de sites web professionnels sur mesure",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+33-6-72-61-79-96",
+            "contactType": "customer service",
+            "email": "contact@codepath.fr",
+            "availableLanguage": "French"
+        },
+        "sameAs": [
+            "https://codepath.fr"
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "CodePath",
+        "url": "https://codepath.fr",
+        "description": "Expert en création de sites web professionnels sur mesure",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://codepath.fr/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Création de Sites Web",
+        "provider": {
+            "@type": "Organization",
+            "name": "CodePath"
+        },
+        "description": "Création de sites web professionnels sur mesure avec design responsive et optimisation SEO",
+        "serviceType": "Développement Web",
+        "areaServed": "France",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services Web",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Site Vitrine",
+                        "description": "Site web professionnel pour présenter votre activité"
+                    },
+                    "price": "80",
+                    "priceCurrency": "EUR"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Site Dynamique",
+                        "description": "Site web avec fonctionnalités avancées et gestion de contenu"
+                    },
+                    "price": "1800",
+                    "priceCurrency": "EUR"
+                }
+            ]
+        }
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -16,73 +142,79 @@
 
     <nav>
         <div class="nav-container">
-            <div class="logo"><a href="/">CodePath</a></div>
+            <div class="logo"><a href="/" aria-label="CodePath - Accueil">CodePath</a></div>
             <div class="menu">
-                <a href="#services">Services</a>
-                <a href="#templates">Templates</a>
-                <a href="/contact/">Contact</a>
-                <a href="/price/">Tarifs</a>
+                <a href="#services" aria-label="Voir nos services">Services</a>
+                <a href="#templates" aria-label="Découvrir nos templates">Templates</a>
+                <a href="/contact/" aria-label="Nous contacter">Contact</a>
+                <a href="/price/" aria-label="Voir nos tarifs">Tarifs</a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <section class="hero">
-            <h1>Transformez votre vision en réalité numérique</h1>
-            <p>Bienvenue dans mon univers de création web où je conçois des sites web professionnels, esthétiques et performants pour répondre à vos besoins spécifiques.</p>
-        </section>
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Transformez votre vision en réalité numérique</h1>
+                <p>Bienvenue dans mon univers de création web où je conçois des sites web professionnels, esthétiques et performants pour répondre à vos besoins spécifiques.</p>
+            </section>
 
-        <section id="services" class="services">
-            <h2 class="section-title">Mes Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-img">
-                        <i>🎨</i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Conception Web</h3>
-                        <p>Création de sites web sur mesure avec un design adapté à votre image de marque et à vos objectifs.</p>
-                        <a href="#" class="btn">En savoir plus</a>
-                    </div>
+            <section id="services" class="services">
+                <h2 class="section-title">Mes Services</h2>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-img">
+                            <i aria-hidden="true">🎨</i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Conception Web</h3>
+                            <p>Création de sites web sur mesure avec un design adapté à votre image de marque et à vos objectifs.</p>
+                            <a href="/contact/?devis=1" class="btn" aria-label="Demander un devis pour la conception web">En savoir plus</a>
+                        </div>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-img">
+                            <i aria-hidden="true">📱</i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Responsive Design</h3>
+                            <p>Conception adaptative pour une expérience utilisateur optimale sur tous les appareils.</p>
+                            <a href="/contact/?devis=2" class="btn" aria-label="Demander un devis pour le responsive design">En savoir plus</a>
+                        </div>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-img">
+                            <i aria-hidden="true">🔍</i>
+                        </div>
+                        <div class="service-content">
+                            <h3>SEO</h3>
+                            <p>Optimisation pour les moteurs de recherche pour améliorer votre visibilité en ligne.</p>
+                            <a href="/contact/?devis=3" class="btn" aria-label="Demander un devis pour l'optimisation SEO">En savoir plus</a>
+                        </div>
+                    </article>
                 </div>
+            </section>
 
-                <div class="service-card">
-                    <div class="service-img">
-                        <i>📱</i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Responsive Design</h3>
-                        <p>Conception adaptative pour une expérience utilisateur optimale sur tous les appareils.</p>
-                        <a href="#" class="btn">En savoir plus</a>
-                    </div>
+            <section id="templates" class="templates">
+                <h2 class="section-title">Templates Disponibles</h2>
+                <p class="section-description">Découvrez nos templates professionnels prêts à l'emploi pour différents secteurs d'activité.</p>
+                <div class="templates-grid" id="templates-grid">
+                    <!-- Les cartes seront générées ici par JavaScript -->
                 </div>
+            </section>
 
-                <div class="service-card">
-                    <div class="service-img">
-                        <i>🔍</i>
-                    </div>
-                    <div class="service-content">
-                        <h3>SEO</h3>
-                        <p>Optimisation pour les moteurs de recherche pour améliorer votre visibilité en ligne.</p>
-                        <a href="#" class="btn">En savoir plus</a>
-                    </div>
+            <section id="contact" class="cta">
+                <h2>Prêt à commencer votre projet?</h2>
+                <p>Contactez-moi pour discuter de vos besoins et obtenir un devis personnalisé.</p>
+                <div class="cta-buttons">
+                    <a href="/contact/" class="btn btn-primary" aria-label="Demander un devis personnalisé">Demander un devis</a>
+                    <a href="tel:+33672617996" class="btn btn-secondary bg-white" aria-label="Appeler directement">Appeler maintenant</a>
                 </div>
-            </div>
-        </section>
-
-        <section id="templates" class="templates">
-            <h2 class="section-title">Templates Disponibles</h2>
-            <div class="templates-grid" id="templates-grid">
-                <!-- Les cartes seront générées ici par JavaScript -->
-            </div>
-        </section>
-
-        <section id="contact" class="cta">
-            <h2>Prêt à commencer votre projet?</h2>
-            <p>Contactez-moi pour discuter de vos besoins et obtenir un devis personnalisé.</p>
-            <a href="/contact/" class="btn btn-primary">Demander un devis</a>
-        </section>
-    </div>
+            </section>
+        </div>
+    </main>
 
     <footer>
         <div class="footer-container">
@@ -90,30 +222,34 @@
                 <h3>CodePath</h3>
                 <p>Création de sites web professionnels sur mesure pour booster votre présence en ligne.</p>
                 <ul class="footer-links">
-                    <li><a href="/mentions-legales/">Mentions Légales</a></li>
+                    <li><a href="/mentions-legales/" aria-label="Mentions légales">Mentions Légales</a></li>
+                    <li><a href="/politique-confidentialite/" aria-label="Politique de confidentialité">Politique de Confidentialité</a></li>
+                    <li><a href="/politique-cookies/" aria-label="Politique des cookies">Politique des Cookies</a></li>
+                    <li><a href="/conditions-generales/" aria-label="Conditions générales">Conditions Générales</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Liens Rapides</h3>
                 <ul class="footer-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#templates">Templates</a></li>
-                    <li><a href="/contact/">Contact</a></li>
+                    <li><a href="#services" aria-label="Nos services">Services</a></li>
+                    <li><a href="#templates" aria-label="Nos templates">Templates</a></li>
+                    <li><a href="/contact/" aria-label="Nous contacter">Contact</a></li>
+                    <li><a href="/price/" aria-label="Nos tarifs">Tarifs</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Services</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Conception Web</a></li>
-                    <li><a href="#">Responsive Design</a></li>
-                    <li><a href="#">SEO</a></li>
+                    <li><a href="/contact/?devis=1" aria-label="Conception web">Conception Web</a></li>
+                    <li><a href="/contact/?devis=2" aria-label="Responsive design">Responsive Design</a></li>
+                    <li><a href="/contact/?devis=3" aria-label="Optimisation SEO">SEO</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Contact</h3>
                 <ul class="footer-links">
-                    <li><a href="mailto:contact@codepath.fr">Email: contact@codepath.fr</a></li>
-                    <li><a href="tel:+33672617996">Téléphone: +33 6 72 61 79 96</a></li>
+                    <li><a href="mailto:contact@codepath.fr" aria-label="Envoyer un email">Email: contact@codepath.fr</a></li>
+                    <li><a href="tel:+33672617996" aria-label="Appeler par téléphone">Téléphone: +33 6 72 61 79 96</a></li>
                 </ul>
             </div>
         </div>
@@ -123,9 +259,9 @@
     </footer>
 
     <!-- Modals pour les templates -->
-    <div id="templateModal" class="modal">
+    <div id="templateModal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
+            <span class="close-btn" aria-label="Fermer la modal">&times;</span>
             <div class="template-details">
                 <div class="template-preview" id="modal-preview"></div>
                 <div class="template-info">
@@ -135,7 +271,7 @@
                     <h3>Caractéristiques</h3>
                     <ul id="modal-features"></ul>
                     <div class="btn-group">
-                        <a href="#" class="btn btn-primary" id="demo-btn">Voir la démo</a>
+                        <a href="#" class="btn btn-primary" id="demo-btn" aria-label="Voir la démo du template">Voir la démo</a>
                     </div>
                 </div>
             </div>

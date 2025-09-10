@@ -5,14 +5,16 @@ document.getElementById("devisForm").addEventListener("submit", async function (
     const typeProjet = document.getElementById("typeProjetInput").value;
     const email = event.target.email.value;
     const comment = event.target.comment.value;
-
-    console.log(typeApp, typeProjet, email, comment);
+    const promoCode = event.target.promoCode.value;
 
     let typeAppJson = null;
     let typeProjetJson = null;
 
     try {
-        const response = await fetch("create_devis.json");
+        const response = await fetch("/devis/create_devis.json");
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
 
         typeAppJson = Object.values(data.type_app).filter(
@@ -22,9 +24,16 @@ document.getElementById("devisForm").addEventListener("submit", async function (
             (item) => item.name === typeProjet
         );
 
-        console.log(typeAppJson, typeProjetJson);
     } catch (error) {
         console.error("Erreur lors de la récupération des données:", error);
+        // Afficher un message d'erreur à l'utilisateur
+        const msgDiv = document.getElementById('formMessage') || document.createElement('div');
+        msgDiv.id = 'formMessage';
+        msgDiv.innerHTML = '<span style="color:red;">Erreur lors du chargement des données. Veuillez réessayer.</span>';
+        if (!document.getElementById('formMessage')) {
+            document.querySelector('.modal-body').appendChild(msgDiv);
+        }
+        return; // Arrêter l'exécution si les données ne peuvent pas être chargées
     }
 
     // Validation
@@ -39,7 +48,7 @@ document.getElementById("devisForm").addEventListener("submit", async function (
     }
 
     if (typeApp && typeProjet && email) {
-        openModal(typeApp, typeProjet, email, comment);
+        openModal(typeApp, typeProjet, email, comment, promoCode);
     }
 });
 
@@ -53,7 +62,7 @@ function closeModal() {
     }, 300);
 }
 
-function openModal(typeApp, typeProjet, email, comment) {
+function openModal(typeApp, typeProjet, email, comment, promoCode) {
     const modal = document.getElementById("templateModal");
 
     // Récupérer les informations du devis
@@ -106,7 +115,6 @@ function openModal(typeApp, typeProjet, email, comment) {
 
     // Mettre à jour l'email
     const modalEmail = document.getElementById("modal-email-value");
-    console.log(modalEmail);
     if (modalEmail && email) {
         modalEmail.textContent = email;
     }
@@ -117,10 +125,25 @@ function openModal(typeApp, typeProjet, email, comment) {
         modalComment.textContent = comment;
     }
 
+    // Mettre à jour le code promo
+    const modalPromoRow = document.getElementById("modal-promo-row");
+    const modalPromoValue = document.getElementById("modal-promo-value");
+    if (promoCode && promoCode.trim() !== '') {
+        modalPromoRow.style.display = "flex";
+        modalPromoValue.textContent = promoCode;
+    } else {
+        modalPromoRow.style.display = "none";
+    }
+
     // Mettre à jour le prix total
     const modalPriceAmount = document.getElementById("modal-price-amount");
     if (modalPriceAmount && totalAmount) {
-        modalPriceAmount.textContent = totalAmount.textContent;
+        // Si le total contient un breakdown (avec réduction), l'afficher tel quel
+        if (totalAmount.innerHTML.includes('price-breakdown')) {
+            modalPriceAmount.innerHTML = totalAmount.innerHTML;
+        } else {
+            modalPriceAmount.textContent = totalAmount.textContent;
+        }
     }
 
     // Afficher le modal
@@ -139,6 +162,7 @@ function validateQuote() {
     const comment = document.getElementById("modal-comment-value").textContent;
     const total = document.getElementById("modal-price-amount").textContent;
     const nbPages = document.getElementById("modal-nb-pages-value").textContent;
+    const promoCode = document.getElementById("modal-promo-value").textContent || '';
 
     // Récupérer les options sélectionnées
     const options = Array.from(document.querySelectorAll("#modal-options-list .option-name"))
@@ -157,8 +181,18 @@ function validateQuote() {
     }
     msgDiv.innerHTML = '';
 
+    // Vérifier que grecaptcha est disponible
+    if (typeof grecaptcha === 'undefined') {
+        console.error('reCAPTCHA n\'est pas chargé');
+        msgDiv.innerHTML = '<span style="color:red;">Erreur: reCAPTCHA n\'est pas disponible. Veuillez recharger la page.</span>';
+        btn.innerHTML = "<span>Valider le devis</span>";
+        btn.disabled = false;
+        return;
+    }
+
     grecaptcha.ready(function() {
-        grecaptcha.execute('6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x', {action: 'devis'}).then(function(token) {
+        grecaptcha.execute('6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x', {action: 'devis'})
+        .then(function(token) {
             // Préparer les données à envoyer
             const formData = new FormData();
             formData.append('typeApp', typeApp);
@@ -167,42 +201,48 @@ function validateQuote() {
             formData.append('comment', comment);
             formData.append('total', total);
             formData.append('nbPages', nbPages);
+            formData.append('promoCode', promoCode);
             formData.append('csrf_token', csrfToken);
             formData.append('g-recaptcha-response', token);
             options.forEach(opt => formData.append('options[]', opt));
 
-            fetch('./validator.php', {
+            return fetch('/devis/validator.php', {
                 method: 'POST',
                 body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    msgDiv.innerHTML = '<span style="color:green;">' + data.message + '</span>';
-                    btn.innerHTML = "<span>✓ Devis validé !</span>";
-                    btn.style.background = "linear-gradient(135deg, #2ecc71, #27ae60)";
-                    setTimeout(() => {
-                        alert("Devis validé ! Vous allez être recontacté.");
-                        closeModal();
-                    }, 1500);
-                } else {
-                    let errorMessage = data.message;
-                    if (data.errors) {
-                        errorMessage += '<br>' + data.errors.join('<br>');
-                    }
-                    if (data.error) {
-                        errorMessage += '<br>Détails techniques : ' + data.error;
-                    }
-                    msgDiv.innerHTML = '<span style="color:red;">' + errorMessage + '</span>';
-                    btn.innerHTML = "<span>Valider le devis</span>";
-                    btn.disabled = false;
+            });
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                msgDiv.innerHTML = '<span style="color:green;">' + data.message + '</span>';
+                btn.innerHTML = "<span>✓ Devis validé !</span>";
+                btn.style.background = "linear-gradient(135deg, #2ecc71, #27ae60)";
+                setTimeout(() => {
+                    closeModal();
+                }, 3000);
+            } else {
+                let errorMessage = data.message;
+                if (data.errors) {
+                    errorMessage += '<br>' + data.errors.join('<br>');
                 }
-            })
-            .catch(error => {
+                if (data.error) {
+                    errorMessage += '<br>Détails techniques : ' + data.error;
+                }
+                msgDiv.innerHTML = '<span style="color:red;">' + errorMessage + '</span>';
                 btn.innerHTML = "<span>Valider le devis</span>";
                 btn.disabled = false;
-                msgDiv.innerHTML = '<span style="color:red;">Erreur lors de l\'envoi du formulaire : ' + error.message + '</span>';
-            });
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors de la validation du devis:', error);
+            btn.innerHTML = "<span>Valider le devis</span>";
+            btn.disabled = false;
+            msgDiv.innerHTML = '<span style="color:red;">Erreur lors de l\'envoi du formulaire : ' + error.message + '</span>';
         });
     });
 }

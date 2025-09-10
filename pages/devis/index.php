@@ -13,8 +13,9 @@ $_SESSION['form_display_time'] = time();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mes Services et Templates</title>
+    <link rel="icon" type="image/jpeg" href="/logo-1x1.jpg">
     <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="./devis.css" />
+    <link rel="stylesheet" href="/devis.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -30,8 +31,8 @@ $_SESSION['form_display_time'] = time();
         <div class="nav-container">
             <div class="logo"><a href="/">CodePath</a></div>
             <div class="menu">
-                <a href="#services">Services</a>
-                <a href="#templates">Templates</a>
+                <a href="/#services">Services</a>
+                <a href="/#templates">Templates</a>
                 <a href="/contact/">Contact</a>
                 <a href="/price/">Tarifs</a>
             </div>
@@ -109,6 +110,16 @@ $_SESSION['form_display_time'] = time();
                         required />
                 </div>
                 <div class="form-group">
+                    <label for="promoCode">Code promo :</label>
+                    <input
+                        type="text"
+                        id="promoCode"
+                        name="promoCode"
+                        placeholder="Entrez votre code promo..."
+                        onchange="updateTotal()" />
+                </div>
+
+                <div class="form-group">
                     <label for="comment">Commentaire :</label>
                     <textarea
                         id="comment"
@@ -151,22 +162,32 @@ $_SESSION['form_display_time'] = time();
                     <li>
                         <a href="/mentions-legales/">Mentions Légales</a>
                     </li>
+                    <li>
+                        <a href="/politique-confidentialite/">Politique de Confidentialité</a>
+                    </li>
+                    <li>
+                        <a href="/politique-cookies/">Politique des Cookies</a>
+                    </li>
+                    <li>
+                        <a href="/conditions-generales/">Conditions Générales</a>
+                    </li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Liens Rapides</h3>
                 <ul class="footer-links">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#templates">Templates</a></li>
+                    <li><a href="/#services">Services</a></li>
+                    <li><a href="/#templates">Templates</a></li>
                     <li><a href="/contact/">Contact</a></li>
+                    <li><a href="/price/">Tarifs</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Services</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Conception Web</a></li>
-                    <li><a href="#">Responsive Design</a></li>
-                    <li><a href="#">SEO</a></li>
+                    <li><a href="/#services">Conception Web</a></li>
+                    <li><a href="/#services">Responsive Design</a></li>
+                    <li><a href="/#services">SEO</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -229,6 +250,15 @@ $_SESSION['form_display_time'] = time();
                             <div class="info-value" id="modal-email-value"></div>
                         </div>
                     </div>
+
+                    <!-- Code promo -->
+                    <div class="promo-code info-row" id="modal-promo-row" style="display: none;">
+                        <div class="info-icon">🎫</div>
+                        <div class="info-content">
+                            <div class="info-label">Code promo</div>
+                            <div class="info-value" id="modal-promo-value"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Options sélectionnées -->
@@ -268,8 +298,8 @@ $_SESSION['form_display_time'] = time();
     </div>
 
     <script src="https://www.google.com/recaptcha/api.js?render=6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x"></script>
-    <script src="main.js"></script>
-    <script src="modal.js"></script>
+    <script src="/devis/main.js"></script>
+    <script src="/devis/modal.js"></script>
 </body>
 
 </html>

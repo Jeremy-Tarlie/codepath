@@ -405,7 +405,8 @@ function openServiceModal(serviceId) {
   // Gérer le clic sur le bouton de contact
   contactBtn.addEventListener("click", function () {
     serviceModal.style.display = "none";
-    document.querySelector("/contact/").scrollIntoView({ behavior: "smooth" });
+    // Rediriger vers la page de contact
+    window.location.href = "/contact/";
   });
 }
 

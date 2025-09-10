@@ -10,15 +10,26 @@ document.addEventListener("DOMContentLoaded", function () {
   let selectedTypeProjet = null;
 
   // Charger les données du devis
-  fetch("create_devis.json")
-      .then((response) => response.json())
+  fetch("/devis/create_devis.json")
+      .then((response) => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+      })
       .then((data) => {
           devisData = data;
           populateTypeApp();
       })
-      .catch((error) =>
-          console.error("Erreur lors du chargement des données:", error)
-      );
+      .catch((error) => {
+          console.error("Erreur lors du chargement des données:", error);
+          // Afficher un message d'erreur à l'utilisateur
+          const errorDiv = document.createElement('div');
+          errorDiv.className = 'error-message';
+          errorDiv.style.cssText = 'background: #ffebee; color: #c62828; padding: 15px; margin: 10px 0; border-radius: 4px; border: 1px solid #ffcdd2;';
+          errorDiv.textContent = 'Erreur lors du chargement des données. Veuillez recharger la page.';
+          document.querySelector('.devis-container').appendChild(errorDiv);
+      });
 
   // Remplir le dropdown de type d'application
   function populateTypeApp() {
@@ -217,7 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
           checkbox.name = "options[]";
           checkbox.value = key;
           checkbox.addEventListener("change", updateTotal);
-          console.log(key);
           checkbox.checked = key === "design_responsive";
 
           const label = document.createElement("label");
@@ -310,8 +320,11 @@ document.addEventListener("DOMContentLoaded", function () {
           document.querySelectorAll('input[name="options[]"]:checked')
       ).map((checkbox) => checkbox.value);
       const nbPages = parseInt(document.getElementById('nbPages').value) || 1;
+      const promoCode = document.getElementById('promoCode').value.trim().toUpperCase();
 
       let total = 0;
+      let discount = 0;
+      let discountPercentage = 0;
 
       // Ajouter le prix du type d'application
       if (typeApp) {
@@ -336,6 +349,13 @@ document.addEventListener("DOMContentLoaded", function () {
       // Ajouter 100€ par page
       total += (nbPages - 1) * 100; // -1 car la première page est incluse dans le prix de base
 
+      // Appliquer la réduction si le code promo est valide
+      if (promoCode === 'ASSOS') {
+          discountPercentage = 30;
+          discount = (total * discountPercentage) / 100;
+          total = total - discount;
+      }
+
       // Mettre à jour l'affichage du total
       let totalContainer = document.querySelector(".total-container");
       if (!totalContainer) {
@@ -351,7 +371,44 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       const totalAmount = totalContainer.querySelector(".total-amount");
-      totalAmount.textContent = `${total}€`;
+      
+      // Afficher le total avec ou sans réduction
+      if (discount > 0) {
+          totalAmount.innerHTML = `
+              <div class="price-breakdown">
+                  <div class="original-price">Prix original: <span class="strikethrough">${(total + discount).toFixed(0)}€</span></div>
+                  <div class="discount-info">Réduction ${discountPercentage}%: -${discount.toFixed(0)}€</div>
+                  <div class="final-price">Total: <strong>${total.toFixed(0)}€</strong></div>
+              </div>
+          `;
+      } else {
+          totalAmount.textContent = `${total.toFixed(0)}€`;
+      }
+
+      // Mettre à jour le message de validation du code promo
+      updatePromoCodeMessage(promoCode);
+  }
+
+  // Fonction pour mettre à jour le message de validation du code promo
+  function updatePromoCodeMessage(promoCode) {
+      let promoMessage = document.getElementById('promo-message');
+      if (!promoMessage) {
+          promoMessage = document.createElement('div');
+          promoMessage.id = 'promo-message';
+          promoMessage.className = 'promo-message';
+          document.getElementById('promoCode').parentNode.appendChild(promoMessage);
+      }
+
+      if (promoCode === '') {
+          promoMessage.textContent = '';
+          promoMessage.className = 'promo-message';
+      } else if (promoCode === 'ASSOS') {
+          promoMessage.textContent = '✓ Code promo valide ! Réduction de 30% appliquée.';
+          promoMessage.className = 'promo-message valid';
+      } else {
+          promoMessage.textContent = '✗ Code promo invalide.';
+          promoMessage.className = 'promo-message invalid';
+      }
   }
 
   // Ajouter les écouteurs d'événements pour le calcul en temps réel
@@ -359,4 +416,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Ajouter l'écouteur pour le nombre de pages
   document.getElementById('nbPages').addEventListener('input', updateTotal);
+  
+  // Ajouter l'écouteur pour le code promo
+  document.getElementById('promoCode').addEventListener('input', updateTotal);
 });

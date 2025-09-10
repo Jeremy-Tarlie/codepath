@@ -3,9 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mentions Légales - CodePath</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Mentions Légales - CodePath | Informations Juridiques | Développeur Web Freelance</title>
+    <meta name="description" content="Mentions légales de CodePath - Informations juridiques complètes sur notre activité de création de sites web. SIRET, contact, propriété intellectuelle et RGPD.">
+    <meta name="keywords" content="mentions légales CodePath, informations juridiques, SIRET, propriété intellectuelle, RGPD, développeur web freelance">
+    <meta name="author" content="CodePath - Jérémy TARLIÉ">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="French">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://codepath.fr/mentions-legales/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codepath.fr/mentions-legales/">
+    <meta property="og:title" content="Mentions Légales - CodePath | Informations Juridiques">
+    <meta property="og:description" content="Mentions légales de CodePath - Informations juridiques complètes sur notre activité de création de sites web.">
+    <meta property="og:image" content="https://codepath.fr/logo-1x1.jpg">
+    <meta property="og:site_name" content="CodePath">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://codepath.fr/mentions-legales/">
+    <meta property="twitter:title" content="Mentions Légales - CodePath">
+    <meta property="twitter:description" content="Mentions légales de CodePath - Informations juridiques complètes.">
+    <meta property="twitter:image" content="https://codepath.fr/logo-1x1.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/logo-1x1.jpg">
+    <link rel="apple-touch-icon" href="/logo-1x1.jpg">
+    
+    <!-- Preconnect pour améliorer les performances -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="./mentions-legales.css" />
+    <link rel="stylesheet" href="/mentions-legales.css"/>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Mentions Légales",
+        "description": "Mentions légales de CodePath - Informations juridiques complètes",
+        "url": "https://codepath.fr/mentions-legales/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "CodePath",
+            "url": "https://codepath.fr"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://codepath.fr"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Mentions Légales",
+                "item": "https://codepath.fr/mentions-legales/"
+            }
+        ]
+    }
+    </script>
   </head>
   <body>
     <header>
@@ -17,158 +90,184 @@
 
     <nav>
       <div class="nav-container">
-        <a href="/" class="logo">CodePath</a>
+        <a href="/" class="logo" aria-label="CodePath - Accueil">CodePath</a>
         <div class="menu">
-          <a href="/#services">Services</a>
-          <a href="/#templates">Templates</a>
-          <a href="/contact/">Contact</a>
-          <a href="/price/">Tarifs</a>
+          <a href="/#services" aria-label="Voir nos services">Services</a>
+          <a href="/#templates" aria-label="Découvrir nos templates">Templates</a>
+          <a href="/contact/" aria-label="Nous contacter">Contact</a>
+          <a href="/price/" aria-label="Voir nos tarifs">Tarifs</a>
         </div>
       </div>
     </nav>
 
-    <div class="container">
-      <section class="hero">
-        <h1>Mentions Légales</h1>
-        <p>
-          Informations juridiques concernant notre site web et notre activité.
-        </p>
-      </section>
-
-      <div class="legal-content">
-        <section class="legal-section">
-          <h2>1. Informations légales</h2>
+    <main>
+      <div class="container">
+        <section class="hero">
+          <h1>Mentions Légales</h1>
           <p>
-            Conformément aux dispositions des articles 6-III et 19 de la Loi n°
-            2004-575 du 21 juin 2004 pour la Confiance dans l'économie
-            numérique, dite L.C.E.N., nous portons à la connaissance des
-            utilisateurs et visiteurs du site les informations suivantes :
-          </p>
-
-          <h3>Éditeur du site</h3>
-          <address>
-            <strong>CodePath</strong><br />
-            France<br />
-            SIRET : 944 788 330 00016<br />
-            Téléphone : +33 6 72 61 79 96<br />
-            Email :
-            <a href="mailto:contact@codepath.fr">contact@codepath.fr</a>
-          </address>
-
-          <h3>Directeur de la publication</h3>
-          <p>TARLIÉ Jérémy, Présidente de CodePath</p>
-        </section>
-
-        <section class="legal-section">
-          <h2>2. Propriété intellectuelle</h2>
-          <p>
-            L'ensemble de ce site relève de la législation française et
-            internationale sur le droit d'auteur et la propriété intellectuelle.
-            Tous les droits de reproduction sont réservés, y compris pour les
-            documents téléchargeables et les représentations iconographiques et
-            photographiques.
-          </p>
-
-          <p>
-            La reproduction de tout ou partie de ce site sur un support
-            électronique ou autre est formellement interdite sauf autorisation
-            expresse de CodePath.
-          </p>
-
-          <p>
-            Les marques et logos figurant sur le site sont des marques déposées
-            de CodePath ou de tiers. Toute reproduction, imitation ou
-            utilisation, totale ou partielle, de ces signes distinctifs sans
-            autorisation expresse et en violation des interdictions prévues aux
-            articles L.713-2 et suivants du Code de la propriété intellectuelle
-            est interdite.
+            Informations juridiques concernant notre site web et notre activité.
           </p>
         </section>
 
-        <section class="legal-section">
-          <h2>3. Protection des données personnelles</h2>
-          <p>
-            CodePath s'engage à préserver la confidentialité des informations
-            fournies en ligne par l'utilisateur. Toute information personnelle
-            que l'utilisateur serait amené à transmettre à CodePath pour
-            l'utilisation de certains services est soumise aux dispositions du
-            Règlement Général sur la Protection des Données (RGPD) et de la Loi
-            Informatique et Libertés du 6 janvier 1978.
-          </p>
+        <div class="legal-content">
+          <section class="legal-section">
+            <h2>1. Informations légales</h2>
+            <p>
+              Conformément aux dispositions des articles 6-III et 19 de la Loi n°
+              2004-575 du 21 juin 2004 pour la Confiance dans l'économie
+              numérique, dite L.C.E.N., nous portons à la connaissance des
+              utilisateurs et visiteurs du site les informations suivantes :
+            </p>
 
-          <p>
-            L'utilisateur dispose d'un droit d'accès, de rectification, de
-            suppression et d'opposition concernant ses données personnelles. Il
-            peut exercer ce droit en envoyant un courrier électronique à
-            l'adresse suivante :
-            <a href="mailto:contact@codepath.fr">contact@codepath.fr</a>.
-          </p>
-        </section>
+            <h3>Éditeur du site</h3>
+            <address>
+              <strong>CodePath</strong><br />
+              France<br />
+              SIRET : 944 788 330 00016<br />
+              Téléphone : <a href="tel:+33672617996" aria-label="Appeler le +33 6 72 61 79 96">+33 6 72 61 79 96</a><br />
+              Email :
+              <a href="mailto:contact@codepath.fr" aria-label="Envoyer un email à contact@codepath.fr">contact@codepath.fr</a>
+            </address>
 
-        <section class="legal-section">
-          <h2>4. Cookies</h2>
-          <p>
-            Notre site utilise des cookies dans le but d'améliorer l'expérience
-            de l'utilisateur et de recueillir des statistiques de fréquentation.
-            Un cookie est un petit fichier texte déposé sur votre ordinateur qui
-            peut être lu ultérieurement par notre serveur.
-          </p>
+            <h3>Directeur de la publication</h3>
+            <p>TARLIÉ Jérémy, Développeur CodePath</p>
+          </section>
 
-          <p>
-            Vous pouvez configurer votre navigateur pour être averti de
-            l'utilisation des cookies et refuser de les accepter. Pour plus
-            d'informations sur les cookies, vous pouvez consulter notre
-            <a href="politique-cookies.html">Politique de cookies</a>.
-          </p>
-        </section>
+          <section class="legal-section">
+            <h2>2. Propriété intellectuelle</h2>
+            <p>
+              L'ensemble de ce site relève de la législation française et
+              internationale sur le droit d'auteur et la propriété intellectuelle.
+              Tous les droits de reproduction sont réservés, y compris pour les
+              documents téléchargeables et les représentations iconographiques et
+              photographiques.
+            </p>
 
-        <section class="legal-section">
-          <h2>5. Responsabilité</h2>
-          <p>
-            Les informations contenues sur ce site sont aussi précises que
-            possible et le site est périodiquement mis à jour. Toutefois,
-            CodePath ne peut garantir l'exactitude, la complétude et l'actualité
-            des informations diffusées sur le site.
-          </p>
+            <p>
+              La reproduction de tout ou partie de ce site sur un support
+              électronique ou autre est formellement interdite sauf autorisation
+              expresse de CodePath.
+            </p>
 
-          <p>
-            Les liens hypertextes mis en place dans le cadre du présent site
-            internet en direction d'autres ressources présentes sur le réseau
-            Internet ne sauraient engager la responsabilité de CodePath.
-          </p>
+            <p>
+              Les marques et logos figurant sur le site sont des marques déposées
+              de CodePath ou de tiers. Toute reproduction, imitation ou
+              utilisation, totale ou partielle, de ces signes distinctifs sans
+              autorisation expresse et en violation des interdictions prévues aux
+              articles L.713-2 et suivants du Code de la propriété intellectuelle
+              est interdite.
+            </p>
+          </section>
 
-          <p>
-            CodePath ne peut être tenue responsable des dommages directs ou
-            indirects résultant de l'utilisation de son site.
-          </p>
-        </section>
+          <section class="legal-section">
+            <h2>3. Protection des données personnelles</h2>
+            <p>
+              CodePath s'engage à préserver la confidentialité des informations
+              fournies en ligne par l'utilisateur. Toute information personnelle
+              que l'utilisateur serait amené à transmettre à CodePath pour
+              l'utilisation de certains services est soumise aux dispositions du
+              Règlement Général sur la Protection des Données (RGPD) et de la Loi
+              Informatique et Libertés du 6 janvier 1978.
+            </p>
 
-        <section class="legal-section">
-          <h2>6. Droit applicable et juridiction compétente</h2>
-          <p>
-            Les présentes mentions légales sont régies par le droit français. En
-            cas de litige, les tribunaux français seront seuls compétents.
-          </p>
+            <p>
+              Les données personnelles collectées sur ce site sont :
+            </p>
+            <ul>
+              <li><strong>Formulaires de contact</strong> : Nom complet, email, téléphone, raison du contact, message</li>
+              <li><strong>Formulaires de devis</strong> : Email, type d'application, type de projet, nombre de pages, options, commentaires</li>
+              <li><strong>Données techniques</strong> : Adresse IP, type de navigateur, cookies techniques</li>
+            </ul>
 
-          <p>
-            Pour toute question relative aux présentes mentions légales ou pour
-            toute demande concernant le site, vous pouvez nous contacter à
-            l'adresse suivante :
-            <a href="mailto:contact@codepath.fr">contact@codepath.fr</a>.
-          </p>
-        </section>
+            <p>
+              L'utilisateur dispose d'un droit d'accès, de rectification, de
+              suppression et d'opposition concernant ses données personnelles. Il
+              peut exercer ce droit en envoyant un courrier électronique à
+              l'adresse suivante :
+              <a href="mailto:contact@codepath.fr" aria-label="Envoyer un email pour exercer vos droits RGPD">contact@codepath.fr</a>.
+            </p>
 
-        <section class="legal-section">
-          <h2>7. Modification des mentions légales</h2>
-          <p>
-            CodePath se réserve le droit de modifier à tout moment les présentes
-            mentions légales. L'utilisateur s'engage donc à les consulter
-            régulièrement.
-          </p>
-          <p>Dernière mise à jour : 16 juin 2025</p>
-        </section>
+            <p>
+              Pour plus d'informations sur le traitement de vos données personnelles, 
+              consultez notre <a href="/politique-confidentialite/" aria-label="Lire la politique de confidentialité">Politique de confidentialité</a>.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>4. Cookies</h2>
+            <p>
+              Notre site utilise uniquement des cookies techniques nécessaires au 
+              bon fonctionnement du site et à l'amélioration de votre expérience 
+              utilisateur. Nous ne collectons aucune donnée analytique via Google 
+              Analytics ou d'autres services de suivi tiers.
+            </p>
+
+            <p>
+              Les cookies utilisés permettent de :
+            </p>
+            <ul>
+              <li>Sauvegarder temporairement les informations que vous saisissez dans nos formulaires</li>
+              <li>Mémoriser vos préférences d'affichage</li>
+              <li>Assurer la sécurité de votre connexion et protéger contre les attaques CSRF</li>
+              <li>Protéger nos formulaires contre les spams et les bots (reCAPTCHA)</li>
+            </ul>
+
+            <p>
+              Vous pouvez configurer votre navigateur pour être averti de
+              l'utilisation des cookies et refuser de les accepter. Pour plus
+              d'informations détaillées sur les cookies, vous pouvez consulter notre
+              <a href="/politique-cookies/" aria-label="Lire la politique des cookies">Politique des cookies</a>.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>5. Responsabilité</h2>
+            <p>
+              Les informations contenues sur ce site sont aussi précises que
+              possible et le site est périodiquement mis à jour. Toutefois,
+              CodePath ne peut garantir l'exactitude, la complétude et l'actualité
+              des informations diffusées sur le site.
+            </p>
+
+            <p>
+              Les liens hypertextes mis en place dans le cadre du présent site
+              internet en direction d'autres ressources présentes sur le réseau
+              Internet ne sauraient engager la responsabilité de CodePath.
+            </p>
+
+            <p>
+              CodePath ne peut être tenue responsable des dommages directs ou
+              indirects résultant de l'utilisation de son site.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>6. Droit applicable et juridiction compétente</h2>
+            <p>
+              Les présentes mentions légales sont régies par le droit français. En
+              cas de litige, les tribunaux français seront seuls compétents.
+            </p>
+
+            <p>
+              Pour toute question relative aux présentes mentions légales ou pour
+              toute demande concernant le site, vous pouvez nous contacter à
+              l'adresse suivante :
+              <a href="mailto:contact@codepath.fr" aria-label="Envoyer un email pour questions juridiques">contact@codepath.fr</a>.
+            </p>
+          </section>
+
+          <section class="legal-section">
+            <h2>7. Modification des mentions légales</h2>
+            <p>
+              CodePath se réserve le droit de modifier à tout moment les présentes
+              mentions légales. L'utilisateur s'engage donc à les consulter
+              régulièrement.
+            </p>
+            <p>Dernière mise à jour : 6 août 2025</p>
+          </section>
+        </div>
       </div>
-    </div>
+    </main>
 
     <footer>
       <div class="footer-container">
@@ -180,37 +279,47 @@
           </p>
           <ul class="footer-links">
             <li>
-              <a href="/mentions-legales/"
+              <a href="/mentions-legales/" aria-label="Mentions légales" aria-current="page"
                 >Mentions Légales</a
               >
+            </li>
+            <li>
+              <a href="/politique-confidentialite/" aria-label="Politique de confidentialité">Politique de Confidentialité</a>
+            </li>
+            <li>
+              <a href="/politique-cookies/" aria-label="Politique des cookies">Politique des Cookies</a>
+            </li>
+            <li>
+              <a href="/conditions-generales/" aria-label="Conditions générales">Conditions Générales</a>
             </li>
           </ul>
         </div>
         <div class="footer-col">
           <h3>Liens Rapides</h3>
           <ul class="footer-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#templates">Templates</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/#services" aria-label="Nos services">Services</a></li>
+            <li><a href="/#templates" aria-label="Nos templates">Templates</a></li>
+            <li><a href="/contact/" aria-label="Nous contacter">Contact</a></li>
+            <li><a href="/price/" aria-label="Nos tarifs">Tarifs</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h3>Services</h3>
           <ul class="footer-links">
-            <li><a href="#">Conception Web</a></li>
-            <li><a href="#">Responsive Design</a></li>
-            <li><a href="#">SEO</a></li>
+            <li><a href="/contact/?devis=1" aria-label="Conception web">Conception Web</a></li>
+            <li><a href="/contact/?devis=2" aria-label="Responsive design">Responsive Design</a></li>
+            <li><a href="/contact/?devis=3" aria-label="Optimisation SEO">SEO</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h3>Contact</h3>
           <ul class="footer-links">
             <li>
-              <a href="mailto:contact@codepath.fr"
+              <a href="mailto:contact@codepath.fr" aria-label="Envoyer un email"
                 >Email: contact@codepath.fr</a
               >
             </li>
-            <li><a href="tel:+33672617996">Téléphone: +33 6 72 61 79 96</a></li>
+            <li><a href="tel:+33672617996" aria-label="Appeler par téléphone">Téléphone: +33 6 72 61 79 96</a></li>
           </ul>
         </div>
       </div>
@@ -219,6 +328,6 @@
       </div>
     </footer>
 
-    <script src="mentions-legales.js"></script>
+    <script src="/mentions-legales.js"></script>
   </body>
 </html>
