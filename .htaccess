@@ -77,7 +77,7 @@ RewriteRule ^templates/5/?$ templates/commerce2/index.html [L]
 RewriteRule ^templates/5/(styles\.css|main\.js|cart\.js)$ templates/commerce2/$1 [L]
 
 RewriteRule ^templates/6/?$ templates/post/index.html [L]
-RewriteRule ^templates/6/(styles\.css|script\.js)$ templates/post/$1 [L]
+RewriteRule ^templates/6/(styles\.css|script\.js|logo\.jpg)$ templates/post/$1 [L]
 
 # =====================================
 # REDIRECTION 404 PERSONNALISÉE

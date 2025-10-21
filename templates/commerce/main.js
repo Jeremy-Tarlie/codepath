@@ -1,4 +1,50 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Menu burger functionality
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  const dropdownContainer = document.querySelector('.dropdown-container');
+
+  // Toggle mobile menu
+  mobileMenuToggle.addEventListener('click', function() {
+    this.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    
+    // Empêcher le scroll du body quand le menu est ouvert
+    if (navMenu.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Toggle dropdown des catégories
+  dropdownToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    dropdownContainer.classList.toggle('active');
+  });
+
+  // Fermer le menu mobile seulement quand on clique sur la croix
+  // (pas de fermeture automatique sur les liens ou en dehors)
+
+  // Fermer le dropdown quand on clique en dehors (desktop)
+  document.addEventListener('click', function(e) {
+    if (window.innerWidth > 768) {
+      if (!dropdownContainer.contains(e.target)) {
+        dropdownContainer.classList.remove('active');
+      }
+    }
+  });
+
+  // Gérer le redimensionnement de la fenêtre
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      mobileMenuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
   // Animation for elements on scroll
   const animateElements = (elements, animationClass) => {
     const observer = new IntersectionObserver(

@@ -14,6 +14,14 @@ $_SESSION['form_display_time'] = time();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mes Services et Templates</title>
     <link rel="icon" type="image/jpeg" href="/logo-1x1.jpg">
+    
+    <!-- Preconnect pour améliorer les performances -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="preconnect" href="https://www.gstatic.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/devis.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -127,6 +135,9 @@ $_SESSION['form_display_time'] = time();
                         rows="3"
                         placeholder="Décrivez votre projet et vos besoins, ainsi que vos options personnalisées ici..."></textarea>
                 </div>
+
+                <!-- Honeypot -->
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
                 <div class="total-container">
                     <p class="devis-info-p">
@@ -297,7 +308,31 @@ $_SESSION['form_display_time'] = time();
         </div>
     </div>
 
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x"></script>
+    <!-- Script reCAPTCHA - Chargement asynchrone et paresseux -->
+    <script>
+        // Fonction pour charger reCAPTCHA de manière paresseuse
+        function loadRecaptcha() {
+            return new Promise((resolve, reject) => {
+                if (window.grecaptcha) {
+                    resolve();
+                    return;
+                }
+                
+                const script = document.createElement('script');
+                script.src = 'https://www.google.com/recaptcha/api.js?render=6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x';
+                script.async = true;
+                script.defer = true;
+                script.onload = () => {
+                    grecaptcha.ready(resolve);
+                };
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        // Exposer la fonction globalement pour modal.js
+        window.loadRecaptcha = loadRecaptcha;
+    </script>
     <script src="/devis/main.js"></script>
     <script src="/devis/modal.js"></script>
 </body>

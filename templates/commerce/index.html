@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/logo-1x1.jpg">
+    <link rel="icon" type="image/jpeg" href="/logo-1x1.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BoutiqueEnLigne - Votre Destination Shopping</title>
     <link
@@ -16,6 +16,12 @@
     <header>
       <div class="container">
         <div class="header-top">
+          <!-- Menu burger pour mobile -->
+          <div class="mobile-menu-toggle">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </div>
           <div class="logo">BoutiqueEnLigne</div>
           <div class="search-bar">
             <input
@@ -51,8 +57,10 @@
         <div class="container">
           <ul class="nav-menu">
             <li><a href="#">Accueil</a></li>
-            <li>
-              <a href="#">Catégories <i class="fas fa-chevron-down"></i></a>
+            <li class="dropdown-container">
+              <a href="#" class="dropdown-toggle"
+                >Catégories <i class="fas fa-chevron-down"></i
+              ></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Électronique</a></li>
                 <li><a href="#">Mode</a></li>

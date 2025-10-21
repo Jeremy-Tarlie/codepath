@@ -460,6 +460,10 @@ footer {
   color: #aaa;
 }
 
+.close-btn{
+  display: none;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .about-content,
@@ -795,6 +799,3 @@ a {
   margin-top: 0px !important;
 }
 
-.close-btn{
-  display: none;
-}

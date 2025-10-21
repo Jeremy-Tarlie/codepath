@@ -47,6 +47,8 @@ $_SESSION['form_display_time'] = time();
     <!-- Preconnect pour améliorer les performances -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="preconnect" href="https://www.gstatic.com">
     
     <!-- CSS -->
     <link rel="stylesheet" href="/style.css">
@@ -155,13 +157,13 @@ $_SESSION['form_display_time'] = time();
                         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                         
                         <div class="form-group">
-                            <label for="name">Nom complet <span aria-label="champ obligatoire">*</span></label>
+                            <label for="name">Nom complet </label>
                             <input type="text" id="name" name="name" required aria-describedby="name-help">
                             <div id="name-help" class="help-text">Votre nom complet pour vous recontacter</div>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email <span aria-label="champ obligatoire">*</span></label>
+                            <label for="email">Email </label>
                             <input type="email" id="email" name="email" required aria-describedby="email-help">
                             <div id="email-help" class="help-text">Votre adresse email pour vous recontacter</div>
                         </div>
@@ -173,7 +175,7 @@ $_SESSION['form_display_time'] = time();
                         </div>
 
                         <div class="form-group">
-                            <label for="reason">Raison du contact <span aria-label="champ obligatoire">*</span></label>
+                            <label for="reason">Raison du contact </label>
                             <?php
                                 $devis = isset($_GET['devis']) ? $_GET['devis'] : '';
                                 $devis = $devis !== "1" && $devis !== "2" && $devis !== "3" ? '' : $devis;
@@ -190,14 +192,14 @@ $_SESSION['form_display_time'] = time();
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Votre message <span aria-label="champ obligatoire">*</span></label>
+                            <label for="message">Votre message </label>
                             <textarea id="message" name="message" rows="6" required aria-describedby="message-help" placeholder="Décrivez votre projet, vos besoins et vos attentes..."></textarea>
                             <div id="message-help" class="help-text">Décrivez votre projet en détail pour un devis précis</div>
                         </div>
 
                         <div class="form-group checkbox-group">
                             <input type="checkbox" id="rgpd" name="rgpd" required aria-describedby="rgpd-help">
-                            <label for="rgpd">J'accepte que mes données soient utilisées pour me recontacter <span aria-label="champ obligatoire">*</span></label>
+                            <label for="rgpd">J'accepte que mes données soient utilisées pour me recontacter </label>
                             <div id="rgpd-help" class="help-text">Conformément au RGPD, vos données ne seront utilisées que pour vous recontacter</div>
                         </div>
 
@@ -258,49 +260,91 @@ $_SESSION['form_display_time'] = time();
         </div>
     </footer>
 
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x"></script>
+    <!-- Script reCAPTCHA - Chargement asynchrone et paresseux -->
     <script>
-        grecaptcha.ready(function() {
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                grecaptcha.execute('6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x', {
-                    action: 'contact'
-                }).then(function(token) {
-                    const formData = new FormData(document.getElementById('contactForm'));
-                    formData.append('g-recaptcha-response', token);
-                    fetch('/contact/validator.php', {
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            const msgDiv = document.getElementById('formMessage');
-                            if (data.success) {
-                                msgDiv.innerHTML = '<span style="color:green;">' + data.message + '</span>';
-                                document.getElementById('contactForm').reset();
-                                fetch('/contact/get_csrf_token.php')
-                                    .then(res => res.json())
-                                    .then(tokenData => {
-                                        if (tokenData.csrf_token) {
-                                            document.querySelector('input[name="csrf_token"]').value = tokenData.csrf_token;
-                                        }
-                                    });
-                            } else {
-                                let errorMessage = data.message;
-                                if (data.errors) {
-                                    errorMessage += '<br>' + data.errors.join('<br>');
-                                }
-                                if (data.error) {
-                                    errorMessage += '<br>Détails techniques : ' + data.error;
-                                }
-                                msgDiv.innerHTML = '<span style="color:red;">' + errorMessage + '</span>';
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Contact form error:', error);
-                            document.getElementById('formMessage').innerHTML = '<span style="color:red;">Erreur lors de l\'envoi du formulaire : ' + (error.message || 'Erreur inconnue') + '</span>';
-                        });
+        // Fonction pour charger reCAPTCHA de manière paresseuse
+        function loadRecaptcha() {
+            return new Promise((resolve, reject) => {
+                if (window.grecaptcha) {
+                    resolve();
+                    return;
+                }
+                
+                const script = document.createElement('script');
+                script.src = 'https://www.google.com/recaptcha/api.js?render=6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x';
+                script.async = true;
+                script.defer = true;
+                script.onload = () => {
+                    grecaptcha.ready(resolve);
+                };
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        // Charger reCAPTCHA quand l'utilisateur interagit avec le formulaire
+        let recaptchaLoaded = false;
+        const form = document.getElementById('contactForm');
+        
+        // Charger reCAPTCHA au focus sur le formulaire
+        form.addEventListener('focusin', function() {
+            if (!recaptchaLoaded) {
+                recaptchaLoaded = true;
+                loadRecaptcha().catch(console.error);
+            }
+        }, { once: true });
+
+        // Gestionnaire de soumission du formulaire
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = 'Envoi en cours...';
+            submitButton.disabled = true;
+
+            loadRecaptcha().then(() => {
+                return grecaptcha.execute('6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x', {action: 'contact'});
+            }).then(function (token) {
+                console.log("reCAPTCHA token:", token);
+
+                if (!token) {
+                    document.getElementById('formMessage').innerHTML =
+                        '<span style="color:red;">Impossible de générer le token reCAPTCHA.</span>';
+                    return;
+                }
+
+                const formData = new FormData(form);
+                formData.append('g-recaptcha-response', token);
+
+                return fetch('/contact/validator.php', {
+                    method: 'POST',
+                    body: formData
                 });
+            }).then(res => res.json()).then(data => {
+                const msgDiv = document.getElementById('formMessage');
+                if (data.success) {
+                    msgDiv.innerHTML = '<span style="color:green;">' + data.message + '</span>';
+                    form.reset();
+
+                    // Recharger un nouveau CSRF
+                    fetch('/contact/get_csrf_token.php')
+                        .then(res => res.json())
+                        .then(csrf => {
+                            if (csrf.csrf_token) {
+                                document.querySelector('input[name="csrf_token"]').value = csrf.csrf_token;
+                            }
+                        });
+                } else {
+                    msgDiv.innerHTML = '<span style="color:red;">' + data.message + '</span>';
+                }
+            }).catch(error => {
+                console.error('Form error:', error);
+                document.getElementById('formMessage').innerHTML =
+                    '<span style="color:red;">Erreur lors de l\'envoi du formulaire.</span>';
+            }).finally(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
             });
         });
     </script>

@@ -193,6 +193,12 @@ function validateQuote() {
     grecaptcha.ready(function() {
         grecaptcha.execute('6Lf1cTorAAAAAClxy4Vi8LaPRJLlirLUlUf2Um5x', {action: 'devis'})
         .then(function(token) {
+            if (!token) {
+                msgDiv.innerHTML = '<span style="color:red;">Impossible de générer le token reCAPTCHA.</span>';
+                btn.innerHTML = "<span>Valider le devis</span>";
+                btn.disabled = false;
+                return;
+            }
             // Préparer les données à envoyer
             const formData = new FormData();
             formData.append('typeApp', typeApp);
@@ -222,6 +228,16 @@ function validateQuote() {
                 msgDiv.innerHTML = '<span style="color:green;">' + data.message + '</span>';
                 btn.innerHTML = "<span>✓ Devis validé !</span>";
                 btn.style.background = "linear-gradient(135deg, #2ecc71, #27ae60)";
+                
+                // Recharger un nouveau CSRF token
+                fetch('/contact/get_csrf_token.php')
+                    .then(res => res.json())
+                    .then(csrf => {
+                        if (csrf.csrf_token) {
+                            document.querySelector('input[name="csrf_token"]').value = csrf.csrf_token;
+                        }
+                    });
+                
                 setTimeout(() => {
                     closeModal();
                 }, 3000);
