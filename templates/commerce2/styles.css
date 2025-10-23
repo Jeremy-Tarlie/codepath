@@ -1247,7 +1247,6 @@
   .user-actions {
     display: flex;
     gap: 10px;
-    border-left: 1px solid #eee;
   }
   
   .account-link,
@@ -1297,6 +1296,10 @@
   }
   
   @media (max-width: 768px) {
+    header {
+      position: relative;
+    }
+
     header .container {
       flex-direction: column;
       text-align: center;
@@ -1310,6 +1313,10 @@
       width: 100%;
       justify-content: center;
       margin-top: 15px;
+    }
+
+    .user-actions a {
+      margin-left: 0;
     }
   }
   

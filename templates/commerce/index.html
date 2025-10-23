@@ -46,9 +46,9 @@
           </div>
 
           <div class="user-actions">
-            <a href="#"><i class="fas fa-user"></i> Mon Compte</a>
-            <a href="#"><i class="fas fa-heart"></i> Favoris</a>
-            <a href="#"><i class="fas fa-shopping-cart"></i> Panier (0)</a>
+            <a href="#"><i class="fas fa-user"></i><span>Mon Compte</span></a>
+            <a href="#"><i class="fas fa-heart"></i><span>Favoris</span></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i><span>Panier (0)</span></a>
           </div>
         </div>
       </div>
@@ -88,7 +88,9 @@
           exclusives et de la livraison gratuite pour les commandes de plus de
           50€.
         </p>
-        <div style="animation: fadeIn 1s ease 0.6s forwards; opacity: 0">
+        <div
+        class="animated-buttons"
+        >
           <a href="#" class="btn pulseScale">Découvrir</a>
           <a href="#" class="btn btn-secondary">Promotions</a>
         </div>
@@ -230,7 +232,7 @@
             </div>
             <div class="promo-content">
               <h3>Grande Vente d'Été</h3>
-              <p>
+              <p class="main-desc">
                 Jusqu'à 30% de réduction sur une sélection d'articles de mode.
               </p>
               <a href="#" class="btn">En savoir plus</a>
@@ -250,7 +252,7 @@
             </div>
             <div class="promo-content">
               <h3>Collection Automne</h3>
-              <p>Découvrez notre nouvelle collection de vêtements d'automne.</p>
+              <p class="main-desc">Découvrez notre nouvelle collection de vêtements d'automne.</p>
               <a href="#" class="btn">Découvrir</a>
             </div>
           </div>
@@ -351,6 +353,36 @@
         </div>
       </div>
     </footer>
+
+    <!-- Menu Panier Latéral -->
+    <div id="cart-sidebar" class="cart-sidebar">
+      <div class="cart-header">
+        <h3>Mon Panier</h3>
+        <button id="close-cart" class="close-cart">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="cart-content">
+        <div id="cart-items" class="cart-items">
+          <!-- Les articles du panier seront ajoutés ici dynamiquement -->
+        </div>
+        
+        <div class="cart-summary">
+          <div class="cart-total">
+            <span>Total: </span>
+            <span id="cart-total-price">0,00 €</span>
+          </div>
+          <div class="cart-actions">
+            <button class="btn btn-secondary" id="clear-cart">Vider le panier</button>
+            <button class="btn" id="checkout-btn">Commander</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlay pour fermer le panier -->
+    <div id="cart-overlay" class="cart-overlay"></div>
 
     <script src="/templates/4/main.js"></script>
   </body>

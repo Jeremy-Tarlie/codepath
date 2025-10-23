@@ -134,14 +134,14 @@ $_SESSION['form_display_time'] = time();
                             <i class="icon" aria-hidden="true">📧</i>
                             <div>
                                 <h3>Email</h3>
-                                <p><a href="mailto:contact@codepath.fr" aria-label="Envoyer un email à contact@codepath.fr">contact@codepath.fr</a></p>
+                                <p><a href="mailto:contact@codepath.fr" aria-label="Envoyer un email à contact@codepath.fr" class="contact-link">contact@codepath.fr</a></p>
                             </div>
                         </div>
                         <div class="info-item">
                             <i class="icon" aria-hidden="true">📱</i>
                             <div>
                                 <h3>Téléphone</h3>
-                                <p><a href="tel:+33672617996" aria-label="Appeler le +33 6 72 61 79 96">+33 6 72 61 79 96</a></p>
+                                <p><a href="tel:+33672617996" aria-label="Appeler le +33 6 72 61 79 96" class="contact-link">+33 6 72 61 79 96</a></p>
                             </div>
                         </div>
                         <div class="info-item">

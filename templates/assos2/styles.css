@@ -403,8 +403,13 @@ footer {
   background: var(--primary);
 }
 
+.footer-column p{
+  padding-left: 5px;
+}
+
 .footer-links {
   list-style: none;
+  padding-left: 5px;
 }
 
 .footer-links li {
@@ -793,9 +798,13 @@ a {
 
 .newsletter-text {
   margin-bottom: 10px;
+  padding-left: 5px;
 }
 
 .btn-newsletter {
   margin-top: 0px !important;
 }
 
+.newsletter-form{
+  padding-left: 5px;
+}

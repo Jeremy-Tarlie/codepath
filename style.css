@@ -18,9 +18,9 @@ a {
     transition: all 0.3s ease;
 }
 
-a:hover {
+/* a:hover {
     color: #2980b9;
-}
+} */
 
 .container {
     max-width: 1200px;
@@ -163,7 +163,6 @@ nav {
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .service-img {
@@ -211,14 +210,13 @@ nav {
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
 .template-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .template-img {
@@ -365,10 +363,12 @@ footer {
     color: #bdc3c7;
     margin-bottom: 20px;
     font-size: 0.95rem;
+    padding-left: 5px;
 }
 
 .footer-links {
     list-style: none;
+    padding-left: 5px;
 }
 
 .footer-links li {
@@ -553,57 +553,6 @@ footer {
     }
 }
 
-
-.template-card {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.template-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.template-img {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.template-content {
-    padding: 25px;
-    position: relative;
-    padding-bottom: 70px; /* Espace pour le bouton */
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.template-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #2c3e50;
-    height: 40px; /* Hauteur fixe pour les titres */
-    display: flex;
-    align-items: center;
-}
-
-.template-content p {
-    margin-bottom: 15px;
-    color: #7f8c8d;
-    height: 60px; /* Hauteur fixe pour les descriptions */
-    overflow: hidden;
-}
 
 
 
@@ -798,6 +747,22 @@ footer {
     margin-top: 20px;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.cta-buttons a {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cta-buttons a:active {
+    transform: translateY(-1px);
 }
 
 /* Section description */

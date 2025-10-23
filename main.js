@@ -209,7 +209,7 @@ window.addEventListener("scroll", function () {
 
     if (cardPosition < screenPosition) {
       card.style.opacity = "1";
-      card.style.transform = "translateY(0)";
+      // card.style.transform = "translateY(0)";
     }
   });
 });
