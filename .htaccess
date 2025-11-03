@@ -79,6 +79,12 @@ RewriteRule ^templates/5/(styles\.css|main\.js|cart\.js)$ templates/commerce2/$1
 RewriteRule ^templates/6/?$ templates/post/index.html [L]
 RewriteRule ^templates/6/(styles\.css|script\.js|logo\.jpg)$ templates/post/$1 [L]
 
+RewriteRule ^templates/7/assets/(.+)$ templates/mairie/assets/$1 [L]
+RewriteRule ^templates/7/img/(.+)$ templates/mairie/img/$1 [L]
+RewriteRule ^templates/7/index\.php$ templates/mairie/index.php [L,QSA]
+RewriteRule ^templates/7/?$ templates/mairie/index.php [L,QSA]
+
+
 # =====================================
 # REDIRECTION 404 PERSONNALISÉE
 # =====================================

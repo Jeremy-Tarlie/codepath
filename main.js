@@ -1,67 +1,39 @@
 // Données des templates
 const templates = {
-  template1: {
-    title: "Harmonie",
+  template7: {
+    title: "Ville-du-Normandie",
     description:
-      "Association Harmonie - Ensemble pour un avenir meilleur. Découvrez nos missions, nos actions, et notre impact positif sur la société.",
-    img: "templates/assos1/img/preview.png",
-    img_grand: "templates/assos1/img/preview_grand.png",
-    tags: ["Association", "Solidarité", "Engagement citoyen"],
+      "Template moderne et complet pour site de mairie : actualités, vie municipale, services en ligne, événements, calendrier et contact. Interface responsive et intuitive pour une communication efficace avec les citoyens.",
+    img: "/templates/mairie/img/preview.png",
+    img_grand: "/templates/mairie/img/preview_grand.png",
+    tags: ["Mairie", "Administration", "Collectivité", "Services publics", "Citoyen"],
     features: [
-      "Mission : Promouvoir la solidarité et l'entraide",
-      "Actions : Activités sociales et éducatives",
-      "Impact : Amélioration du bien-être collectif",
-      "Événements : Rencontres, ateliers et conférences",
+      "Page d'accueil avec actualités et informations importantes",
+      "Vie municipale : élus, conseil municipal, commissions",
+      "Services en ligne : démarches administratives et réservations",
+      "Calendrier des événements et des conseils municipaux",
+      "Section contact complète avec formulaire",
+      "Navigation intuitive et design responsive",
     ],
-    link: "/templates/1/",
-  },
-  template2: {
-    title: "Association Nom",
-    description:
-      "Ensemble, pour un monde meilleur. Une association engagée dans des actions concrètes pour un avenir durable.",
-    img: "templates/assos2/img/preview.png",
-    img_grand: "templates/assos2/img/preview_grand.png",
-    tags: ["Association", "Solidarité", "Bénévolat", "Engagement"],
-    features: [
-      "Mission : Décrire la mission de l'association",
-      "Actions : Trois initiatives phares à fort impact",
-      "Engagement : Ouvert aux bénévoles et adhérents",
-      "Vision : Pour un monde meilleur fondé sur des valeurs fortes",
-    ],
-    link: "/templates/2/",
-  },
-  template3: {
-    title: "Château de Hautclair",
-    description:
-      "Un site élégant pour découvrir le patrimoine du Château de Hautclair, son histoire médiévale, ses événements culturels et ses visites guidées.",
-    img: "templates/chateau/img/preview.png",
-    img_grand: "templates/chateau/img/preview_grand.png",
-    tags: ["Culture", "Patrimoine", "Tourisme", "Événementiel"],
-    features: [
-      "Présentation de l'histoire du château",
-      "Informations pratiques : horaires, tarifs, accès",
-      "Événements à venir : festivals, expositions",
-      "Galerie photos immersive",
-      "Section contact et réservation en ligne",
-    ],
-    link: "/templates/3/",
+    link: "/templates/7/",
+    new: true,
   },
   
-  template4: {
-    title: "BoutiqueEnLigne",
+  template6: {
+    title: "Post",
     description:
-      "Une boutique moderne pour explorer les dernières tendances, promotions et nouveautés dans l'univers de l'électronique, la mode, la maison et plus encore.",
-    img: "templates/commerce/img/preview.png",
-    img_grand: "templates/commerce/img/preview_grand.png",
-    tags: ["E-commerce", "Boutique", "Produits", "Promotions", "Shopping"],
+      "Template professionnel pour agence de communication ou marketing : design moderne, services variés, formulaire de recherche intelligent et témoignages clients.",
+    img: "/templates/post/img/preview.png",
+    img_grand: "/templates/post/img/preview_grand.png",
+    tags: ["Agence", "Marketing", "Communication", "Web", "Design"],
     features: [
-      "Recherche en temps réel avec suggestions",
-      "Navigation par catégories : Électronique, Mode, Maison...",
-      "Produits populaires avec options d'achat rapide",
-      "Promotions dynamiques et offres saisonnières",
-      "Intégration newsletter et espace client",
+      "Section de recherche multi-critères intégrée",
+      "Présentation des services : digital, print, vidéo, design",
+      "Statistiques animées (clients, projets, prix)",
+      "Témoignages clients et réalisations",
+      "Newsletter, contact complet et interface responsive",
     ],
-    link: "/templates/4/",
+    link: "/templates/6/",
   },
   
   template5: {
@@ -81,21 +53,70 @@ const templates = {
     link: "/templates/5/",
   },
   
-  template6: {
-    title: "Post",
+  template4: {
+    title: "BoutiqueEnLigne",
     description:
-      "Template professionnel pour agence de communication ou marketing : design moderne, services variés, formulaire de recherche intelligent et témoignages clients.",
-    img: "/templates/post/img/preview.png",
-    img_grand: "/templates/post/img/preview_grand.png",
-    tags: ["Agence", "Marketing", "Communication", "Web", "Design"],
+      "Une boutique moderne pour explorer les dernières tendances, promotions et nouveautés dans l'univers de l'électronique, la mode, la maison et plus encore.",
+    img: "templates/commerce/img/preview.png",
+    img_grand: "templates/commerce/img/preview_grand.png",
+    tags: ["E-commerce", "Boutique", "Produits", "Promotions", "Shopping"],
     features: [
-      "Section de recherche multi-critères intégrée",
-      "Présentation des services : digital, print, vidéo, design",
-      "Statistiques animées (clients, projets, prix)",
-      "Témoignages clients et réalisations",
-      "Newsletter, contact complet et interface responsive",
+      "Recherche en temps réel avec suggestions",
+      "Navigation par catégories : Électronique, Mode, Maison...",
+      "Produits populaires avec options d'achat rapide",
+      "Promotions dynamiques et offres saisonnières",
+      "Intégration newsletter et espace client",
     ],
-    link: "/templates/6/",
+    link: "/templates/4/",
+  },
+  
+  template3: {
+    title: "Château de Hautclair",
+    description:
+      "Un site élégant pour découvrir le patrimoine du Château de Hautclair, son histoire médiévale, ses événements culturels et ses visites guidées.",
+    img: "templates/chateau/img/preview.png",
+    img_grand: "templates/chateau/img/preview_grand.png",
+    tags: ["Culture", "Patrimoine", "Tourisme", "Événementiel"],
+    features: [
+      "Présentation de l'histoire du château",
+      "Informations pratiques : horaires, tarifs, accès",
+      "Événements à venir : festivals, expositions",
+      "Galerie photos immersive",
+      "Section contact et réservation en ligne",
+    ],
+    link: "/templates/3/",
+  },
+  
+  template2: {
+    title: "Association Nom",
+    description:
+      "Ensemble, pour un monde meilleur. Une association engagée dans des actions concrètes pour un avenir durable.",
+    img: "templates/assos2/img/preview.png",
+    img_grand: "templates/assos2/img/preview_grand.png",
+    tags: ["Association", "Solidarité", "Bénévolat", "Engagement"],
+    features: [
+      "Mission : Décrire la mission de l'association",
+      "Actions : Trois initiatives phares à fort impact",
+      "Engagement : Ouvert aux bénévoles et adhérents",
+      "Vision : Pour un monde meilleur fondé sur des valeurs fortes",
+    ],
+    link: "/templates/2/",
+  },
+  
+  template1: {
+    title: "Harmonie",
+    description:
+      "Association Harmonie - Ensemble pour un avenir meilleur. Découvrez nos missions, nos actions, et notre impact positif sur la société.",
+    img: "templates/assos1/img/preview.png",
+    img_grand: "templates/assos1/img/preview_grand.png",
+    tags: ["Association", "Solidarité", "Engagement citoyen"],
+    features: [
+      "Mission : Promouvoir la solidarité et l'entraide",
+      "Actions : Activités sociales et éducatives",
+      "Impact : Amélioration du bien-être collectif",
+      "Événements : Rencontres, ateliers et conférences",
+    ],
+    link: "/templates/1/",
   },
 };
 
@@ -123,7 +144,9 @@ Object.entries(templates).forEach(([id, template]) => {
   card.innerHTML = `
         <div class="template-img" style="background-image: url('${
           template.img
-        }')"></div>
+        }')">
+            ${template.new ? '<span class="badge-new">Nouveau</span>' : ''}
+        </div>
         <div class="template-content">
             <h3>${template.title}</h3>
             <p>${
