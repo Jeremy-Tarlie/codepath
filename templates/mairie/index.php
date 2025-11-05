@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/jpeg" href="/logo-1x1.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ville Type - Normandie</title>
     <link rel="stylesheet" href="assets/css/style.css" />
